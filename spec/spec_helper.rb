@@ -3,7 +3,7 @@ Coveralls.wear!
 
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'parasut'
-require 'parasut_api'
+require 'oauth2'
 
 OAUTH_CLIENT = OAuth2::Client.new(
   ENV['PARASUT_API_CLIENT_ID'],
