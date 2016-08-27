@@ -1,7 +1,6 @@
 # parasut-ruby
 
 [![Build Status](https://travis-ci.org/ahtung/parasut-ruby.svg?branch=master)](https://travis-ci.org/ahtung/parasut-ruby)
-
 [![Coverage Status](https://coveralls.io/repos/github/ahtung/parasut-ruby/badge.svg?branch=master)](https://coveralls.io/github/ahtung/parasut-ruby?branch=master)
 
 You can sign up for an parasut account at https://www.parasut.com/
