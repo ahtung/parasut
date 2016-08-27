@@ -34,5 +34,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3.0'
   spec.add_development_dependency 'rubocop', '~> 0.42.0'
   spec.add_development_dependency 'coveralls'
-  spec.add_dependency 'faraday', '~> 0.8.11'
+  spec.add_dependency 'faraday', '~> 0.8'
+  spec.add_dependency 'oauth2', '~> 1.2'
 end
