@@ -1,7 +1,18 @@
 language: ruby
-ruby:
-- '1.9'
+rvm:
 - '2.0'
 - '2.1'
 - '2.2'
-- '2.3'
+- '2.3.0'
+deploy:
+  provider: rubygems
+  api_key:
+    secure: k80dIWlH9DLDqS/YBeXfboeCZO4s31RKwP6/ZCICd5PZOXaPNub3itbsb8F0nDgTA/7qwl5IlY2O68wAQ8EB2lR9q18fmwVAi18AXRLuJKLrVZEf3vTxU2v4N0ekEC4RVgRXCU5p2Zvgr2RVonX/Wj9Nju4xX5na1fFPM23rX20jEv5Uzp5nIZRNBmAc56vNJAPf5xLsDhROujTdY7LjFNrR/90aR3JxNMZXmNstvuuKwyVVTidDRm+AF1VM60G1VZ5VQGkJI8r7PP1xr43Sbr8Xs/HCw9XY3IJasM0Lgfc7g2z7WeLZHMoSn+o9nB532XVbsk9EQhQR4kXpfVys091g7cT0+eZZ3Iqwrv9xwxGSTPeHCDUlk8AA8nBux0tpCCn6v7KUIM9S69S7zCSQJWcWjHFLpEFyBkZa6Zf6Rj0u62cXs8gIyhGZMCEWp6FJJoX8YVVV0iF75CldhI35mkV9IQs8QiypjHPuro8geXVaxVw2zrXnmb1VAy1XUlOqvAGwFSwSfRoCPcJQnbuNGMDjJbcSZLyMM79dXH44R/JY0b3Bbg+8SRYJGffPA/jproi0nE2+GXmj02eeDo7cblS8Y3AA2QTounVYUYfV9SEUu8yDbi0SJtgQHFMT5+mLeEc4gE42gy5GLyLQCvpzClsidVKAeEOQ0eC+/Mdn7BM=
+  gemspec: parasut.gemspec
+  gem: parasut-ruby
+  on:
+    tags: true
+    repo: ahtung/parasut-ruby
+  skip_cleanup: true
+before_install:
+  - gem update bundler
