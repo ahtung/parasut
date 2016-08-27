@@ -4,11 +4,11 @@
 
 You can sign up for an parasut account at https://www.parasut.com/
 
-# Requirements
+## Requirements
 
 * Ruby 1.9.3 or newer
 
-# Installation
+## Installation
 
 Add this line to your application's Gemfile:
 
