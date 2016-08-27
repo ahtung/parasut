@@ -2,7 +2,6 @@
 module Parasut
   # Options
   class Options
-
     # Attributes
     attr_accessor :client_id
     attr_accessor :client_secret

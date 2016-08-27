@@ -92,5 +92,4 @@ describe Parasut::Options do
       expect(options.redirect_uri).to eq('some_string')
     end
   end
-
 end
