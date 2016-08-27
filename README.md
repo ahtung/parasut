@@ -7,7 +7,7 @@ You can sign up for an parasut account at https://www.parasut.com/
 
 ## Requirements
 
-* Ruby 1.9.3 or newer
+* Ruby 2.0.0 or newer
 
 ## Installation
 
