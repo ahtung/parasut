@@ -1,4 +1,5 @@
 require 'parasut/version'
+require 'parasut/options'
 
 # lib/parasut.rb
 module Parasut
