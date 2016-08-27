@@ -10,10 +10,8 @@ AllCops:
     - 'vendor/**/*'
     - 'bin/**/*'
     - 'log/**/*'
-Rails:
-  Enabled: true
 Metrics/AbcSize:
-  Max: 17
+  Max: 15
 Metrics/BlockNesting:
   Max: 3
 Metrics/ClassLength:
