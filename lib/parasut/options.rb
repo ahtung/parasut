@@ -1,5 +1,6 @@
 # lib/parasut/options.rb
 module Parasut
+  # Options
   class Options
     attr_accessor :client_id
     attr_accessor :client_secret
