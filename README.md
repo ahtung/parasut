@@ -1,10 +1,14 @@
-# Parasut
+# parasut-ruby
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/parasut`. To experiment with that code, run `bin/console` for an interactive prompt.
+[![Build Status](https://travis-ci.org/ahtung/parasut-ruby.svg?branch=master)](https://travis-ci.org/ahtung/parasut-ruby)
 
-TODO: Delete this and the text above, and describe your gem
+You can sign up for an parasut account at https://www.parasut.com/
 
-## Installation
+# Requirements
+
+* Ruby 1.9.3 or newer
+
+# Installation
 
 Add this line to your application's Gemfile:
 
