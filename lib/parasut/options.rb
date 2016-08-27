@@ -10,6 +10,7 @@ module Parasut
     attr_accessor :company_id
     attr_accessor :grant_type
     attr_accessor :redirect_uri
+    attr_accessor :authorize_url
 
     # Initializer
     def initialize
@@ -18,6 +19,7 @@ module Parasut
       @username = 'username'
       @password = 'password'
       @company_id = 'company_id'
+      @authorize_url = 'https://api.parasut.com/oauth/token'
       @grant_type = 'password'
       @redirect_uri = 'urn:ietf:wg:oauth:2.0:oob'
     end
