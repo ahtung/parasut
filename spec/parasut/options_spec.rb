@@ -2,6 +2,19 @@ require 'spec_helper'
 
 describe Parasut::Options do
   # Attributes
+  describe 'should have attribute attr_accessor authorize_url' do
+    it 'authorize_url' do
+      options = Parasut::Options.new
+      expect(options.authorize_url).to eq('https://api.parasut.com/oauth/token')
+    end
+
+    it 'authorize_url=(str)' do
+      options = Parasut::Options.new
+      options.authorize_url = 'some_string'
+      expect(options.authorize_url).to eq('some_string')
+    end
+  end
+
   describe 'should have attribute attr_accessor client_id' do
     it 'client_id' do
       options = Parasut::Options.new
@@ -70,7 +83,7 @@ describe Parasut::Options do
   describe 'should have attribute attr_accessor grant_type' do
     it 'grant_type' do
       options = Parasut::Options.new
-      expect(options.grant_type).to eq('grant_type')
+      expect(options.grant_type).to eq('password')
     end
 
     it 'grant_type=(str)' do
@@ -83,7 +96,7 @@ describe Parasut::Options do
   describe 'should have attribute attr_accessor redirect_uri' do
     it 'redirect_uri' do
       options = Parasut::Options.new
-      expect(options.redirect_uri).to eq('redirect_uri')
+      expect(options.redirect_uri).to eq('urn:ietf:wg:oauth:2.0:oob')
     end
 
     it 'redirect_uri=(str)' do
