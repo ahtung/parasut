@@ -6,6 +6,7 @@ require 'parasut/version'
 Gem::Specification.new do |spec|
   spec.name          = 'parasut'
   spec.version       = Parasut::VERSION
+  spec.platform      = Gem::Platform::RUBY
   spec.authors       = ['Dunya Kirkali', 'Onur Kucukkecce']
   spec.email         = ['dunyakirkali@ahtung.co', 'onurkucukkece@ahtung.co']
 
