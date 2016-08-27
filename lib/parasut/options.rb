@@ -18,8 +18,8 @@ module Parasut
       @username = 'username'
       @password = 'password'
       @company_id = 'company_id'
-      @grant_type = 'grant_type'
-      @redirect_uri = 'redirect_uri'
+      @grant_type = 'password'
+      @redirect_uri = 'urn:ietf:wg:oauth:2.0:oob'
     end
   end
 end
