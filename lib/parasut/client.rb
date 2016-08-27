@@ -5,8 +5,9 @@ module Parasut
   class Client
     def initialize
       options = Parasut::Options.new
+      URL = 'https://api.parasut.com/oauth/token'
 
-      connection = Faraday.new url: API_URL do |faraday|
+      connection = Faraday.new url: URL do |faraday|
         faraday.request  :url_encoded             # form-encode POST params
         faraday.response :logger                  # log requests to STDOUT
         faraday.adapter  Faraday.default_adapter  # make requests with Net::HTTP
