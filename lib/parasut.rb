@@ -1,4 +1,4 @@
-require "parasut/version"
+require 'parasut/version'
 
 module Parasut
   # Your code goes here...
