@@ -6,12 +6,12 @@ require 'parasut/version'
 Gem::Specification.new do |spec|
   spec.name          = "parasut"
   spec.version       = Parasut::VERSION
-  spec.authors       = ["Dunya Kirkali"]
-  spec.email         = ["dunyakirkali@gmail.com"]
+  spec.authors       = ["Dunya Kirkali", "Onur Kucukkecce"]
+  spec.email         = ["dunyakirkali@ahtung.co", "onurkucukkece@ahtung.co"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Parasut client.}
+  spec.description   = %q{Parasut client.}
+  spec.homepage      = "https://github.com/ahtung/parasut-ruby"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
