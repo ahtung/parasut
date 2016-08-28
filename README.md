@@ -1,12 +1,13 @@
 # parasut-ruby
 
 [![Build Status](https://travis-ci.org/ahtung/parasut-ruby.svg?branch=master)](https://travis-ci.org/ahtung/parasut-ruby)
+[![Coverage Status](https://coveralls.io/repos/github/ahtung/parasut-ruby/badge.svg?branch=master)](https://coveralls.io/github/ahtung/parasut-ruby?branch=master)
 
 You can sign up for an parasut account at https://www.parasut.com/
 
 ## Requirements
 
-* Ruby 1.9.3 or newer
+* Ruby 2.0.0 or newer
 
 ## Installation
 
@@ -36,10 +37,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/parasut. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ahtung/parasut-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
