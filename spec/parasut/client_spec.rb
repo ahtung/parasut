@@ -7,9 +7,8 @@ RSpec.describe Parasut::Client do
 
   describe '#' do
     describe 'me' do
-      xit 'should return 200' do
-        token = OAuth2::AccessToken.new(nil, 'access_token')
-        client = Parasut::Client.new(token)
+      fit 'should return 200' do
+        client = Parasut::Client.new
         expect(client.me.resp.status_code).to eq(200)
       end
     end

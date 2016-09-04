@@ -1,25 +1,26 @@
 module Parasut
   # Parasut::Client
   class Client
-    attr_reader :access_token
-
     API_VERSION = 'v1'.freeze
+    BASE_URL = "#{oauth_strategy.default_options[:client_options][:site]}/oauth/token".freeze
 
-    def initialize(_access_token)
-      strategy = OmniAuth::Strategies::Parasut.new(
-        ENV['PARASUT_CLIENT_ID'],
-        ENV['PARASUT_CLIENT_SECRET'],
-        authorize_params: { foo: 'bar', baz: 'zip' },
-        token_params: { username: 'dunyakirkali', password: 'dE3kI812', grant_type: 'password' }
-      )
-      @access_token = strategy.client.auth_code.get_token('password', redirect_uri: 'urn:ietf:wg:oauth:2.0:oob')
-      RestClient.add_before_execution_proc do |req, _params|
-        @access_token.sign! req
-      end
+    def initialize
     end
 
     def me
-      RestClient.get("/#{API_VERSION}/me")
+      resp = RestClient.get("#{oauth_strategy.default_options[:client_options][:site]}/#{API_VERSION}/me", Authorization: "Bearer #{@access_token}")
+      JSON.parse(resp)
+    end
+
+    def oauth_strategy
+      OmniAuth::Strategies::Parasut
+    end
+
+    private
+
+    def access_token
+      resp = RestClient.post("#{BASE_URL}?client_id=#{ENV['PARASUT_CLIENT_ID']}&client_secret=#{ENV['PARASUT_CLIENT_SECRET']}&username=dunyakirkali@ahtung.co&password=dE3kI812&grant_type=password&redirect_uri=urn:ietf:wg:oauth:2.0:oob", {})
+      JSON.parse(resp)['access_token']
     end
   end
 end
