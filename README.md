@@ -29,17 +29,17 @@ Or install it yourself as:
 
 Create an initializer for Parasut options.
 ```
-    # config/initializers/parasut.rb
-    Parasut.options do |o|
-      o.client_id = 'client_id',
-      o.client_secret = 'client_secret',
-      o.username = 'username',
-      o.password = 'password',
-      o.grant_type = 'grant_type',
-      o.redirect_uri = 'redirect_uri'
-      o.company_id = 'company_id',
-      o.authorize_url = 'authorize_url'
-    end
+  # config/initializers/parasut.rb
+  Parasut.options do |o|
+    o.client_id = 'client_id',
+    o.client_secret = 'client_secret',
+    o.username = 'username',
+    o.password = 'password',
+    o.grant_type = 'grant_type',
+    o.redirect_uri = 'redirect_uri'
+    o.company_id = 'company_id',
+    o.authorize_url = 'authorize_url'
+  end
 
 ````
 TODO: Write usage instructions here
