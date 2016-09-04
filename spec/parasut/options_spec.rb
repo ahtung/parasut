@@ -7,12 +7,11 @@ describe Parasut::Options do
       o.client_secret = 'client_secret',
       o.username = 'username',
       o.password = 'password',
-      o.company_id = 'company_id',
+      o.company_id = 'company_id'
     end
   end
 
   # Attributes
-
   describe 'should have attribute attr_accessor client_id' do
     xit 'client_id' do
       expect(options.client_id).to eq('client_id')
