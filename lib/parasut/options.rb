@@ -2,15 +2,10 @@
 module Parasut
   # Options
   class Options
+    ATTRIBUTES = [:client_id, :client_secret, :username, :password, :company_id, :grant_type, :redirect_uri, :authorize_url]
+
     # Attributes
-    attr_accessor :client_id
-    attr_accessor :client_secret
-    attr_accessor :username
-    attr_accessor :password
-    attr_accessor :company_id
-    attr_accessor :grant_type
-    attr_accessor :redirect_uri
-    attr_accessor :authorize_url
+    attr_accessor *ATTRIBUTES
 
     # Initializer
     def initialize
