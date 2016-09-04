@@ -8,7 +8,11 @@ module Parasut
     end
 
     def me
-      RestClient.get("#{BASE_URL}/#{API_VERSION}/me", Authorization: "Bearer #{refresh_token['access_token']}")
+      RestClient.get([BASE_URL, API_VERSION, 'me'].join('/'), headers)
+    end
+
+    def get(url)
+      RestClient.get([BASE_URL, API_VERSION, url].join('/'), headers)
     end
 
     private
@@ -21,6 +25,10 @@ module Parasut
     def password
       resp = RestClient.post("#{BASE_URL}/oauth/token?#{URI.encode_www_form(password_params)}", {})
       JSON.parse(resp)
+    end
+
+    def headers
+      { Authorization: "Bearer #{refresh_token['access_token']}" }
     end
 
     def refresh_token_params
