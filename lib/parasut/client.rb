@@ -14,12 +14,12 @@ module Parasut
     private
 
     def refresh_token
-      resp = RestClient.post("#{BASE_URL}?#{URI.encode_www_form(refresh_token_params)}", {})
+      resp = RestClient.post("#{BASE_URL}/oauth/token?#{URI.encode_www_form(refresh_token_params)}", {})
       JSON.parse(resp)
     end
 
     def password
-      resp = RestClient.post("#{BASE_URL}?#{URI.encode_www_form(password_params)}", {})
+      resp = RestClient.post("#{BASE_URL}/oauth/token?#{URI.encode_www_form(password_params)}", {})
       JSON.parse(resp)
     end
 
