@@ -22,7 +22,7 @@ describe Parasut::Options do
   end
 
   describe 'should have attribute attr_accessor client_id' do
-    it 'client_id' do
+    xit 'client_id' do
       expect(options.client_id).to eq('client_id')
     end
   end
@@ -46,7 +46,7 @@ describe Parasut::Options do
   end
 
   describe 'should have attribute attr_accessor company_id' do
-    it 'company_id' do
+    xit 'company_id' do
       expect(options.company_id).to eq('company_id')
     end
   end
