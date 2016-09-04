@@ -1,4 +1,4 @@
-require "singleton"
+require 'singleton'
 
 # lib/parasut/options.rb
 module Parasut
@@ -9,14 +9,12 @@ module Parasut
     ATTRIBUTES = [:client_id, :client_secret, :username, :password, :company_id]
 
     # Attributes
-    attr_accessor *ATTRIBUTES
+    attr_accessor *(ATTRIBUTES)
   end
 
   # Initializer
   def self.options
-    if block_given?
-      yield Options.instance
-    end
+    yield Options.instance if block_given?
     Options.instance
   end
 end

@@ -2,7 +2,7 @@ module Parasut
   class Client
     attr_reader :access_token
 
-    API_VERSION = 'v1'
+    API_VERSION = 'v1'.freeze
 
     def initialize(access_token)
       strategy = OmniAuth::Strategies::Parasut.new(ENV['PARASUT_CLIENT_ID'], ENV['PARASUT_CLIENT_SECRET'], authorize_params: {:foo => "bar", :baz => "zip"},

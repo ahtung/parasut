@@ -1,19 +1,20 @@
 require 'spec_helper'
 
 describe Parasut::Options do
-  let(:options) do
-    Parasut.options do |o|
-      o.client_id = 'client_id',
-      o.client_secret = 'client_secret',
-      o.username = 'username',
-      o.password = 'password',
-      o.company_id = 'company_id'
+  let!(:parasut) do
+    Parasut.options do |options|
+      options.client_id = 'client_id'
+      options.client_secret = 'client_secret'
+      options.username = 'username'
+      options.password = 'password'
+      options.company_id = 'company_id'
     end
   end
+  let!(:options) { Parasut::Options.instance }
 
   # Attributes
   describe 'should have attribute attr_accessor client_id' do
-    xit 'client_id' do
+    it 'client_id' do
       expect(options.client_id).to eq('client_id')
     end
   end
@@ -37,7 +38,7 @@ describe Parasut::Options do
   end
 
   describe 'should have attribute attr_accessor company_id' do
-    xit 'company_id' do
+    it 'company_id' do
       expect(options.company_id).to eq('company_id')
     end
   end
