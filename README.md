@@ -30,15 +30,12 @@ Or install it yourself as:
 Create an initializer for Parasut options.
 ```
   # config/initializers/parasut.rb
-  Parasut.options do |o|
-    o.client_id = 'client_id',
-    o.client_secret = 'client_secret',
-    o.username = 'username',
-    o.password = 'password',
-    o.grant_type = 'grant_type',
-    o.redirect_uri = 'redirect_uri'
-    o.company_id = 'company_id',
-    o.authorize_url = 'authorize_url'
+  Parasut.options do |option|
+    option.client_id = 'client_id',
+    option.client_secret = 'client_secret',
+    option.username = 'username',
+    option.password = 'password',
+    option.company_id = 'company_id',
   end
 
 ````
