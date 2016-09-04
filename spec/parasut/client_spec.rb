@@ -1,18 +1,6 @@
 require 'spec_helper'
 
 RSpec.describe Parasut::Client do
-  it 'should have BASE_URL defined' do
-    expect(Parasut::Client.const_defined?('BASE_URL')).not_to be_nil
-  end
-
-  it 'should have AUTH_PATH defined' do
-    expect(Parasut::Client.const_defined?('AUTH_PATH')).not_to be_nil
-  end
-
-  it 'should have TOKEN_PATH defined' do
-    expect(Parasut::Client.const_defined?('TOKEN_PATH')).not_to be_nil
-  end
-
   it 'should have API_VERSION defined' do
     expect(Parasut::Client.const_defined?('API_VERSION')).not_to be_nil
   end
