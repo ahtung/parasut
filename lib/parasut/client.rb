@@ -14,12 +14,12 @@ module Parasut
     private
 
     def refresh_token
-      resp = RestClient.post("#{BASE_URL}?client_id=#{Parasut.options.client_id}&client_secret=#{Parasut.options.client_secret}&grant_type=refresh_token&refresh_token=#{password['refresh_token']}", {})
+      resp = RestClient.post("#{BASE_URL}/oauth/token?client_id=#{Parasut.options.client_id}&client_secret=#{Parasut.options.client_secret}&grant_type=refresh_token&refresh_token=#{password['refresh_token']}", {})
       JSON.parse(resp)
     end
 
     def password
-      resp = RestClient.post("#{BASE_URL}?client_id=#{Parasut.options.client_id}&client_secret=#{Parasut.options.client_secret}&username=#{Parasut.options.username}&password=#{Parasut.options.password}&grant_type=password&redirect_uri=urn:ietf:wg:oauth:2.0:oob", {})
+      resp = RestClient.post("#{BASE_URL}/oauth/token?client_id=#{Parasut.options.client_id}&client_secret=#{Parasut.options.client_secret}&username=#{Parasut.options.username}&password=#{Parasut.options.password}&grant_type=password&redirect_uri=urn:ietf:wg:oauth:2.0:oob", {})
       JSON.parse(resp)
     end
   end
