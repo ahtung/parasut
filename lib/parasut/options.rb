@@ -1,4 +1,4 @@
-require "singleton"
+require 'singleton'
 
 # lib/parasut/options.rb
 module Parasut
@@ -6,7 +6,7 @@ module Parasut
   class Options
     include Singleton
 
-    ATTRIBUTES = [:client_id, :client_secret, :username, :password, :company_id]
+    ATTRIBUTES = [:client_id, :client_secret, :username, :password, :company_id].freeze
 
     # Attributes
     attr_accessor *ATTRIBUTES
@@ -14,9 +14,7 @@ module Parasut
 
   # Initializer
   def self.options
-    if block_given?
-      yield Options.instance
-    end
+    yield Options.instance if block_given?
     Options.instance
   end
 end
