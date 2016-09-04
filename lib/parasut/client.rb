@@ -2,7 +2,7 @@ module Parasut
   # Parasut::Client
   class Client
     API_VERSION = 'v1'.freeze
-    BASE_URL = "https://api.parasut.com/oauth/token".freeze
+    BASE_URL = 'https://api.parasut.com/oauth/token'.freeze
 
     def initialize
     end
