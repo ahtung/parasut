@@ -8,5 +8,4 @@ require_relative 'parasut/client'
 
 # lib/parasut.rb
 module Parasut
-  # Your code goes here...
 end
