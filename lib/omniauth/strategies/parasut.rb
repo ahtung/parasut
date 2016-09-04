@@ -4,8 +4,8 @@ module OmniAuth
       option :name, 'parasut'
       option :client_options, {
         site: 'https://api.parasut.com',
-        authorize_url: 'https://api.parasut.com/oauth/authorize',
-        token_url: 'https://api.parasut.com/oauth/token'
+        authorize_url: '/oauth/authorize',
+        token_url: '/oauth/token'
       }
 
       uid { api.current_user.id }
