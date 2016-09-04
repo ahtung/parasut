@@ -9,5 +9,9 @@ module Parasut
 
     # Attributes
     attr_accessor *ATTRIBUTES
+
+    # Initializer
+    def initialize
+    end
   end
 end
