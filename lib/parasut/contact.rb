@@ -13,6 +13,7 @@ module Parasut
 
     def initialize(options)
       self.id = options['id']
+      self.name = options['name']
     end
 
     def self.all
@@ -22,6 +23,10 @@ module Parasut
     def self.find(id)
       contact = JSON.parse(Parasut::Client.get(instance_path(id)))['contact']
       new(contact)
+    end
+
+    def self.create(attrs)
+      JSON.parse(Parasut::Client.create(collection_path))['success'] == 'OK'
     end
 
     def delete

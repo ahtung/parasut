@@ -17,14 +17,23 @@ describe Parasut::Contact do
       end
     end
 
-    describe 'find' do
-      it 'returns a contact' do
-        expect(Parasut::Contact.find(1205839)).not_to eq(0)
+    describe 'create' do
+      it 'creates a new contact' do
+        expect(Parasut::Contact.create(name: 'Dunya')).to eq(true)
       end
     end
 
+    describe 'find' do
+      it 'returns a contact instance' do
+        expect(Parasut::Contact.find(1205839)).to be_instance_of(described_class)
+      end
+    end
+  end
+
+  # Instance methods
+  describe '#' do
     describe 'delete' do
-      xit 'deletes a contact' do
+      it 'deletes a contact' do
         contact = Parasut::Contact.find(1205839)
         expect(contact.delete).to eq(true)
       end
