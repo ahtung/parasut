@@ -11,12 +11,31 @@ module Parasut
     # Attributes
     attr_accessor *ATTRIBUTES
 
+    def initialize(options)
+      self.id = options['id']
+    end
+
     def self.all
-      Parasut::Client.get('100174/contacts')
+      JSON.parse(Parasut::Client.get(self.class.collection_path))['items']
     end
 
     def self.find(id)
-      Parasut::Client.get("100174/contacts/#{id}")
+      contact = JSON.parse(Parasut::Client.get(instance_path(id)))['contact']
+      new(contact)
+    end
+
+    def delete
+      JSON.parse(Parasut::Client.delete(self.class.instance_path(id)))['success'] == 'OK'
+    end
+
+    private
+
+    def self.instance_path(id)
+      "#{collection_path}/#{id}"
+    end
+
+    def self.collection_path
+      "100174/contacts"
     end
   end
 end

@@ -1,5 +1,6 @@
 require 'rest-client'
 require 'uri'
+require 'pry'
 
 require_relative 'parasut/version'
 require_relative 'parasut/options'
