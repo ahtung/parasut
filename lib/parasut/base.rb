@@ -13,7 +13,7 @@ module Parasut
     def self.find(id)
       item_name = ActiveSupport::Inflector.singularize(path)
       item = JSON.parse(Parasut::Client.get(instance_path(id)))[item_name.to_s]
-      new(item)
+      new item
     end
 
     def self.create(attrs)
