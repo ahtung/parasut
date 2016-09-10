@@ -3,7 +3,7 @@ module Parasut
   # Product
   class Base
     def initialize(options)
-      self.id = options['id']
+      id = options['id']
     end
 
     def self.all

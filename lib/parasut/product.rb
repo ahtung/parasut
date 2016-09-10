@@ -8,7 +8,7 @@ module Parasut
     attr_accessor *ATTRIBUTES
 
     def initialize(options)
-      self.id = options['id']
+      id = options['id']
     end
 
     def self.path
