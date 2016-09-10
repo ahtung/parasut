@@ -24,7 +24,7 @@ RSpec.describe Parasut::Contact do
 
     describe 'find' do
       it 'returns a contact instance' do
-        expect(Parasut::Contact.find(1_205_839)).to be_instance_of(described_class)
+        expect(Parasut::Contact.find(1)).to be_instance_of(described_class)
       end
     end
   end
@@ -33,7 +33,7 @@ RSpec.describe Parasut::Contact do
   describe '#' do
     describe 'delete' do
       it 'deletes a contact' do
-        contact = Parasut::Contact.find(1_205_839)
+        contact = Parasut::Contact.find(1)
         expect(contact.delete).to eq(true)
       end
     end
