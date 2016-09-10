@@ -9,7 +9,8 @@ module Parasut
       RestClient.get([BASE_URL, API_VERSION, url].join('/'), headers)
     end
 
-    def self.create(url)
+    def self.create(url, attrs)
+      puts attrs
       RestClient.post([BASE_URL, API_VERSION, url].join('/'), headers)
     end
 
@@ -21,8 +22,6 @@ module Parasut
       resp = RestClient.post("#{token_url}?#{URI.encode_www_form(refresh_token_params)}", {})
       JSON.parse(resp)
     end
-
-    private
 
     def self.password
       resp = RestClient.post("#{token_url}?#{URI.encode_www_form(password_params)}", {})

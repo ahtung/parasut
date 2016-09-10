@@ -1,12 +1,11 @@
 require 'spec_helper'
 
-describe Parasut::Contact do
+RSpec.describe Parasut::Contact do
+  subject { described_class.new }
+
   # Attributes
   Parasut::Contact::ATTRIBUTES.each do |attribute|
-    xit "should have attribute attr_accessor #{attribute}" do
-      contact = Parasut::Contact.new(attribute => 'Some string')
-      expect(contact.send(attribute.to_s)).to eq('Some string')
-    end
+    it { should have_attr_accessor(attribute.to_sym) }
   end
 
   # Class methods
@@ -25,7 +24,7 @@ describe Parasut::Contact do
 
     describe 'find' do
       it 'returns a contact instance' do
-        expect(Parasut::Contact.find(1205839)).to be_instance_of(described_class)
+        expect(Parasut::Contact.find(1_205_839)).to be_instance_of(described_class)
       end
     end
   end
@@ -34,7 +33,7 @@ describe Parasut::Contact do
   describe '#' do
     describe 'delete' do
       it 'deletes a contact' do
-        contact = Parasut::Contact.find(1205839)
+        contact = Parasut::Contact.find(1_205_839)
         expect(contact.delete).to eq(true)
       end
     end
