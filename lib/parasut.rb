@@ -10,4 +10,6 @@ require_relative 'parasut/product'
 
 # lib/parasut.rb
 module Parasut
+  API_VERSION = 'v1'.freeze
+  BASE_URL = 'https://api.parasut.com'.freeze
 end
