@@ -1,8 +1,8 @@
 # lib/parasut/product.rb
 module Parasut
   # Product
-  class Product
     PATH = 'products'.freeze
+  class Product < Parasut::Base
     ATTRIBUTES = [:code, :name, :vat_rate, :currency, :list_price, :archived, :category].freeze
 
     # Attributes

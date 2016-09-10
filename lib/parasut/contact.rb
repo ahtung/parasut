@@ -1,8 +1,8 @@
 # lib/parasut/contact.rb
 module Parasut
   # Contact
-  class Contact
     PATH = 'contacts'.freeze
+  class Contact < Parasut::Base
     ATTRIBUTES = [
       :id, :name, :contact_type, :email, :balance, :tax_office,
       :tax_number, :archived, :category, :address, :contact_people
