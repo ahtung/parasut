@@ -7,13 +7,17 @@ module Parasut
     end
 
     def self.all
-      JSON.parse(Parasut::Client.get(collection_path))['items']
+      JSON.parse()['items']
     end
 
     def self.find(id)
       item_name = ActiveSupport::Inflector.singularize(path)
       item = JSON.parse(Parasut::Client.get(instance_path(id)))[item_name.to_s]
       new(item)
+    end
+
+    def self.create(attrs)
+      JSON.parse(Parasut::Client.create(collection_path))['success'] == 'OK'
     end
 
     def delete
