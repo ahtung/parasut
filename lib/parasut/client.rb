@@ -6,8 +6,11 @@ module Parasut
     end
 
     def self.get(url)
-      puts [BASE_URL, API_VERSION, url].join('/')
       RestClient.get([BASE_URL, API_VERSION, url].join('/'), headers)
+    end
+
+    def self.create(url)
+      RestClient.post([BASE_URL, API_VERSION, url].join('/'), headers)
     end
 
     def self.delete(url)
