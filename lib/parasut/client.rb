@@ -10,7 +10,6 @@ module Parasut
     end
 
     def self.create(url, attrs)
-      puts attrs
       RestClient.post([BASE_URL, API_VERSION, url].join('/'), headers)
     end
 
