@@ -46,5 +46,9 @@ module Parasut
       @details = options[:details]
       @payments = options[:payments]
     end
+
+    def self.path
+      'sales_invoices'
+    end
   end
 end
