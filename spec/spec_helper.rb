@@ -12,7 +12,7 @@ RSpec.configure do |config|
       options.client_secret = ENV['PARASUT_CLIENT_SECRET']
       options.username = ENV['PARASUT_USERNAME']
       options.password = ENV['PARASUT_PASSWORD']
-      options.company_id = 'company_id'
+      options.company_id = ENV['PARASUT_COMPANY_ID']
     end
   end
 end
