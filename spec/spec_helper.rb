@@ -1,4 +1,5 @@
 require 'webmock/rspec'
+require 'json'
 require 'coveralls'
 Coveralls.wear!
 
