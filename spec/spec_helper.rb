@@ -34,39 +34,59 @@ RSpec.configure do |config|
 
     stub_request(:get, 'https://api.parasut.com/v1/100174/contacts/1')
       .to_return(status: 200, body: {
-  "contact": {
-    "id": 1,
-    "name": "ABC LTD. STI.",
-    "email": "user@mailhost.com",
-    "contact_type": "company",
-    "tax_number": "1234567890",
-    "tax_office": "Beyoglu",
-    "balance": "0.0",
-    "estimate_balance": "0.0",
-    "archived": false,
-    "contact_people": [
-      {
-        "id": 17,
-        "name": "Ahmet Bilir",
-        "phone": "532 123 4567",
-        "email": "ahmet@mailhost.com",
-        "notes": "Muhasebe Sorumlusu"
-      }
-    ],
-    "address": {
-      "id": 575,
-      "address": "Guzel Mahalle Istanbul",
-      "phone": "123 123 4567",
-      "fax": nil
-    },
-    "category": {
-      "id": 3,
-      "name": "Mimarlık şirketleri",
-      "bg_color": "5cbc68",
-      "text_color": "f3f2f2"
-    }
-  }
-}.to_json, headers: {})
+        "contact": {
+          "id": 1,
+          "name": "ABC LTD. STI.",
+          "email": "user@mailhost.com",
+          "contact_type": "company",
+          "tax_number": "1234567890",
+          "tax_office": "Beyoglu",
+          "balance": "0.0",
+          "estimate_balance": "0.0",
+          "archived": false,
+          "contact_people": [
+            {
+              "id": 17,
+              "name": "Ahmet Bilir",
+              "phone": "532 123 4567",
+              "email": "ahmet@mailhost.com",
+              "notes": "Muhasebe Sorumlusu"
+            }
+          ],
+          "address": {
+            "id": 575,
+            "address": "Guzel Mahalle Istanbul",
+            "phone": "123 123 4567",
+            "fax": nil
+          },
+          "category": {
+            "id": 3,
+            "name": "Mimarlık şirketleri",
+            "bg_color": "5cbc68",
+            "text_color": "f3f2f2"
+          }
+        }
+      }.to_json, headers: {})
+    stub_request(:get, 'https://api.parasut.com/v1/100174/contacts/1/outstanding_payments')
+      .to_return(status: 200, body: {
+        "items": [
+          {
+            "id": 1003,
+            "date": "2014-06-25",
+            "amount": "224.8",
+            "notes": "Is bitimi",
+            "flow": "in",
+            "paid_on": nil,
+            "payable_type": "SalesInvoice",
+            "payable_id": 502
+          }
+        ],
+        "meta": {
+          "item_count": 1,
+          "page_count": 1,
+          "per_page": 25
+        }
+      }.to_json, headers: {})
     stub_request(:delete, 'https://api.parasut.com/v1/100174/contacts/1')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
     stub_request(:get, 'https://api.parasut.com/v1/100174/contacts')
