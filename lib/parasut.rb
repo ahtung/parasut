@@ -8,6 +8,7 @@ require 'pry'
 require_relative 'parasut/version'
 require_relative 'parasut/options'
 require_relative 'parasut/client'
+require_relative 'parasut/base'
 require_relative 'parasut/product'
 
 # lib/parasut.rb
