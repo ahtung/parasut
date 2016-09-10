@@ -8,6 +8,10 @@ module Parasut
     # Attributes
     attr_accessor *ATTRIBUTES
 
+    def initialize(options)
+      self.id = options['id']
+    end
+
     def self.all
       JSON.parse(Parasut::Client.get(collection_path))['items']
     end
@@ -15,6 +19,10 @@ module Parasut
     def self.find(id)
       product = JSON.parse(Parasut::Client.get(instance_path(id)))['product']
       new(contact)
+    end
+
+    def delete
+      JSON.parse(Parasut::Client.delete(self.class.instance_path(id)))['success'] == 'OK'
     end
 
     private
