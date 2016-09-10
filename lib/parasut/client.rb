@@ -10,6 +10,10 @@ module Parasut
       RestClient.get([BASE_URL, API_VERSION, url].join('/'), headers)
     end
 
+    def self.delete(url)
+      RestClient.delete([BASE_URL, API_VERSION, url].join('/'), headers)
+    end
+
     def self.refresh_token
       resp = RestClient.post("#{token_url}?#{URI.encode_www_form(refresh_token_params)}", {})
       JSON.parse(resp)
