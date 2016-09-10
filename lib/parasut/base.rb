@@ -2,10 +2,7 @@
 module Parasut
   # Product
   class Base
-    # TODO
-    # Set PATH dynamically
-    PATH = 'products'.freeze
-    INSTANCE = ActiveSupport::Inflector.singularize(PATH)
+    INSTANCE = ActiveSupport::Inflector.singularize(path)
     ATTRIBUTES = [:code, :name, :vat_rate, :currency, :list_price, :archived, :category].freeze
 
     # Attributes
@@ -28,14 +25,16 @@ module Parasut
       JSON.parse(Parasut::Client.delete(self.class.instance_path(id)))['success'] == 'OK'
     end
 
-    private
+    def self.path
+      ''
+    end
 
     def self.instance_path(id)
       "#{collection_path}/#{id}"
     end
 
     def self.collection_path
-      "100174/#{PATH}"
+      "100174/#{path}"
     end
   end
 end
