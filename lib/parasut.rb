@@ -1,3 +1,4 @@
+require 'active_support'
 require 'omniauth-oauth2'
 require 'oauth2'
 require 'rest-client'
