@@ -16,7 +16,7 @@ module Parasut
     end
 
     def self.all
-      JSON.parse(Parasut::Client.get(self.class.collection_path))['items']
+      JSON.parse(Parasut::Client.get(collection_path))['items']
     end
 
     def self.find(id)

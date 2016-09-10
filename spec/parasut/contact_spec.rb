@@ -12,21 +12,19 @@ describe Parasut::Contact do
   # Class methods
   describe '.' do
     describe 'all' do
-      xit 'returns all contacts' do
+      it 'returns all contacts' do
         expect(Parasut::Contact.all.length).not_to eq(0)
       end
     end
 
     describe 'find' do
       it 'returns a contact' do
-        # binding.pry
         expect(Parasut::Contact.find(1205839)).not_to eq(0)
       end
     end
 
     describe 'delete' do
-      it 'deletes a contact' do
-        # binding.pry
+      xit 'deletes a contact' do
         contact = Parasut::Contact.find(1205839)
         expect(contact.delete).to eq(true)
       end
