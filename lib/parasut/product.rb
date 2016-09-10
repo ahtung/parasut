@@ -17,5 +17,13 @@ module Parasut
       @archived = options[:archived]
       @category = options[:category]
     end
+
+    def self.all
+      Parasut::Client.get('100174/products')
+    end
+
+    def self.find(id)
+      Parasut::Client.get("100174/products/#{id}")
+    end
   end
 end
