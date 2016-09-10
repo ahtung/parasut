@@ -1,7 +1,7 @@
 # lib/parasut/sales_invoice.rb
 module Parasut
   # SalesInvoice
-  class SalesInvoice
+  class SalesInvoice < Parasut::Base
     ATTRIBUTES = [
       :id, :created_at, :item_type, :contact, :description, :issue_date,
       :invoice_series, :invoice_id, :category, :gross_total, :total_discount,
