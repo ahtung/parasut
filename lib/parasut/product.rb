@@ -2,7 +2,8 @@
 module Parasut
   # Product
   class Product
-    ATTRIBUTES = [:code, :name, :vat_rate, :currency, :list_price, :archived, :category]
+    PATH = 'products'.freeze
+    ATTRIBUTES = [:code, :name, :vat_rate, :currency, :list_price, :archived, :category].freeze
 
     # Attributes
     attr_accessor *ATTRIBUTES
