@@ -8,7 +8,6 @@ require_relative 'parasut/version'
 require_relative 'parasut/options'
 require_relative 'parasut/contact'
 require_relative 'parasut/client'
-require_relative 'parasut/contact'
 
 # lib/parasut.rb
 module Parasut
