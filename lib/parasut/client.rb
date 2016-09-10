@@ -4,29 +4,27 @@ module Parasut
     API_VERSION = 'v1'.freeze
     BASE_URL = 'https://api.parasut.com'.freeze
 
+    def initialize
+    end
+
     def me
       RestClient.get([BASE_URL, API_VERSION, 'me'].join('/'), headers)
     end
 
     def get(url)
-      puts [BASE_URL, API_VERSION, url].join('/')
       RestClient.get([BASE_URL, API_VERSION, url].join('/'), headers)
-    end
-
-    def refresh_token
-      resp = RestClient.post("#{token_url}?#{URI.encode_www_form(refresh_token_params)}", {})
-      JSON.parse(resp)
     end
 
     private
 
-    def password
-      resp = RestClient.post("#{token_url}?#{URI.encode_www_form(password_params)}", {})
+    def refresh_token
+      resp = RestClient.post("#{BASE_URL}/oauth/token?#{URI.encode_www_form(refresh_token_params)}", {})
       JSON.parse(resp)
     end
 
-    def token_url
-      "#{BASE_URL}/oauth/token"
+    def password
+      resp = RestClient.post("#{BASE_URL}/oauth/token?#{URI.encode_www_form(password_params)}", {})
+      JSON.parse(resp)
     end
 
     def headers
