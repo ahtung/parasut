@@ -45,5 +45,11 @@ RSpec.describe Parasut::Contact do
       end
     end
 
+    describe 'past_transactions' do
+      it 'returns past transactions' do
+        contact = Parasut::Contact.find(1)
+        expect(contact.past_transactions.length).not_to eq(0)
+      end
+    end
   end
 end

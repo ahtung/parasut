@@ -87,6 +87,30 @@ RSpec.configure do |config|
           "per_page": 25
         }
       }.to_json, headers: {})
+
+    stub_request(:get, 'https://api.parasut.com/v1/100174/contacts/1/past_transactions')
+      .to_return(status: 200, body: {
+        "items": [
+          {
+            "account_id": nil,
+            "account_name": nil,
+            "amount": "200.0",
+            "date": "2014-05-19",
+            "debit_credit": nil,
+            "description": "On odeme",
+            "issue_date": nil,
+            "id": 2003,
+            "item_id": 502,
+            "transaction_type": "collection"
+          }
+        ],
+        "meta": {
+          "item_count": 1,
+          "page_count": 1,
+          "per_page": 25
+        }
+      }.to_json, headers: {})
+
     stub_request(:delete, 'https://api.parasut.com/v1/100174/contacts/1')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
     stub_request(:get, 'https://api.parasut.com/v1/100174/contacts')
