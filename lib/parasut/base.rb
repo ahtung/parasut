@@ -2,11 +2,6 @@
 module Parasut
   # Product
   class Base
-    ATTRIBUTES = [:code, :name, :vat_rate, :currency, :list_price, :archived, :category].freeze
-
-    # Attributes
-    attr_accessor *ATTRIBUTES
-
     def initialize(options)
       self.id = options['id']
     end
