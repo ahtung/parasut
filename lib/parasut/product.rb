@@ -14,6 +14,14 @@ module Parasut
 
     def self.find(id)
       Parasut::Client.get("100174/products/#{id}")
+    private
+
+    def self.instance_path(id)
+      "#{collection_path}/#{id}"
+    end
+
+    def self.collection_path
+      "100174/#{PATH}"
     end
   end
 end
