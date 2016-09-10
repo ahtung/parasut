@@ -18,7 +18,7 @@ RSpec.xdescribe Parasut::SalesInvoice do
 
     describe 'create' do
       it 'creates a new contact' do
-        expect(Parasut::SalesInvoice.create(name: 'Dunya')).to eq(true)
+        expect(Parasut::SalesInvoice.create(description: 'Dunya')).to eq(true)
       end
     end
 
