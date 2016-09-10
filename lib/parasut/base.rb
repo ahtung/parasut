@@ -2,7 +2,6 @@
 module Parasut
   # Product
   class Base
-    INSTANCE = ActiveSupport::Inflector.singularize(path)
     ATTRIBUTES = [:code, :name, :vat_rate, :currency, :list_price, :archived, :category].freeze
 
     # Attributes
@@ -17,7 +16,8 @@ module Parasut
     end
 
     def self.find(id)
-      item = JSON.parse(Parasut::Client.get(instance_path(id)))[INSTANCE.to_s]
+      item_name = ActiveSupport::Inflector.singularize(path)
+      item = JSON.parse(Parasut::Client.get(instance_path(id)))[item_name.to_s]
       new(item)
     end
 
