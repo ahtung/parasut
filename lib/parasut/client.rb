@@ -1,39 +1,36 @@
 module Parasut
   # Parasut::Client
   class Client
-    API_VERSION = 'v1'.freeze
-    BASE_URL = 'https://api.parasut.com'.freeze
-
-    def me
+    def self.me
       RestClient.get([BASE_URL, API_VERSION, 'me'].join('/'), headers)
     end
 
-    def get(url)
+    def self.get(url)
       puts [BASE_URL, API_VERSION, url].join('/')
       RestClient.get([BASE_URL, API_VERSION, url].join('/'), headers)
     end
 
-    def refresh_token
+    def self.refresh_token
       resp = RestClient.post("#{token_url}?#{URI.encode_www_form(refresh_token_params)}", {})
       JSON.parse(resp)
     end
 
     private
 
-    def password
+    def self.password
       resp = RestClient.post("#{token_url}?#{URI.encode_www_form(password_params)}", {})
       JSON.parse(resp)
     end
 
-    def token_url
+    def self.token_url
       "#{BASE_URL}/oauth/token"
     end
 
-    def headers
+    def self.headers
       { Authorization: "Bearer #{refresh_token['access_token']}" }
     end
 
-    def refresh_token_params
+    def self.refresh_token_params
       {
         client_id: Parasut.options.client_id,
         client_secret: Parasut.options.client_secret,
@@ -42,7 +39,7 @@ module Parasut
       }
     end
 
-    def password_params
+    def self.password_params
       {
         client_id: Parasut.options.client_id,
         client_secret: Parasut.options.client_secret,

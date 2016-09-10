@@ -16,5 +16,11 @@ describe Parasut::Contact do
         expect(Parasut::Contact.all.length).not_to eq(0)
       end
     end
+
+    describe 'find' do
+      it 'returns a contact' do
+        expect(Parasut::Contact.find('65225')).not_to eq(0)
+      end
+    end
   end
 end

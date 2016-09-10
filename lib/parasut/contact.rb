@@ -1,7 +1,7 @@
 # lib/parasut/contact.rb
 module Parasut
   # Contact
-  class Contact < ActiveResource::Base
+  class Contact
     PATH = 'contacts'.freeze
     ATTRIBUTES = [
       :id, :name, :contact_type, :email, :balance, :tax_office,
@@ -11,7 +11,12 @@ module Parasut
     # Attributes
     attr_accessor *ATTRIBUTES
 
-    self.site = "https://api.parasut.com/v1"
-    # self.class.headers['Authorization'] = "Bearer #{client.refresh_token['access_token']}"
+    def self.all
+      Parasut::Client.get('100174/contacts')
+    end
+
+    def self.find(id)
+      Parasut::Client.get("100174/contacts/#{id}")
+    end
   end
 end
