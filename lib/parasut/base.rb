@@ -21,6 +21,10 @@ module Parasut
       new(item)
     end
 
+    def self.create(attrs)
+      JSON.parse(Parasut::Client.create(collection_path, attrs))['success'] == 'OK'
+    end
+
     def delete
       JSON.parse(Parasut::Client.delete(self.class.instance_path(id)))['success'] == 'OK'
     end
