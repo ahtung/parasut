@@ -7,9 +7,8 @@ RSpec.describe Parasut::Client do
 
   describe '#' do
     describe 'me' do
-      fit 'should return 200' do
-        client = Parasut::Client.new
-        expect(client.me.code).to eq(200)
+      it 'should return 200' do
+        expect(described_class.me.code).to eq(200)
       end
     end
   end
