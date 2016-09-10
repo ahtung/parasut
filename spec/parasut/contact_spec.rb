@@ -37,5 +37,19 @@ RSpec.describe Parasut::Contact do
         expect(contact.delete).to eq(true)
       end
     end
+
+    describe 'outstanding_payments' do
+      it 'returns outstanding payments' do
+        contact = Parasut::Contact.find(1)
+        expect(contact.outstanding_payments.length).not_to eq(0)
+      end
+    end
+
+    describe 'past_transactions' do
+      it 'returns past transactions' do
+        contact = Parasut::Contact.find(1)
+        expect(contact.past_transactions.length).not_to eq(0)
+      end
+    end
   end
 end

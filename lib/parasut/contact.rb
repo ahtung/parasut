@@ -40,6 +40,13 @@ module Parasut
     end
 
     # Instance methods
+    def outstanding_payments
+      JSON.parse(Parasut::Client.get("#{self.class.instance_path(id)}/outstanding_payments"))['items']
+    end
+
+    def past_transactions
+      JSON.parse(Parasut::Client.get("#{self.class.instance_path(id)}/past_transactions"))['items']
+    end
 
     def delete
       JSON.parse(Parasut::Client.delete(self.class.instance_path(id)))['success'] == 'OK'
