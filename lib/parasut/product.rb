@@ -9,11 +9,14 @@ module Parasut
     attr_accessor *ATTRIBUTES
 
     def self.all
-      Parasut::Client.get('100174/products')
+      JSON.parse(Parasut::Client.get(collection_path))['items']
     end
 
     def self.find(id)
-      Parasut::Client.get("100174/products/#{id}")
+      product = JSON.parse(Parasut::Client.get(instance_path(id)))['product']
+      new(contact)
+    end
+
     private
 
     def self.instance_path(id)
