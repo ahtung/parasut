@@ -44,5 +44,32 @@ module Parasut
     def delete
       JSON.parse(Parasut::Client.delete(self.class.instance_path(id)))['success'] == 'OK'
     end
+
+    # Sample create request
+    # {
+    #   "contact": {
+    #     "name": "ABC LTD. STI.",
+    #     "contact_type": "company",
+    #     "email": "user@mailhost.com",
+    #     "tax_number": "1234567890",
+    #     "tax_office": "Beyoglu",
+    #     "category_id": 3,
+    #     "city": "İstanbul",
+    #     "district": "Beyoğlu",
+    #     "address_attributes": {
+    #       "address": "Guzel Mahalle Cicek sokak",
+    #       "fax": null,
+    #       "phone": "123 123 4567"
+    #     },
+    #     "contact_people_attributes": [
+    #       {
+    #         "name": "Ahmet Bilir",
+    #         "phone": "532 123 4567",
+    #         "email": "ahmet@mailhost.com",
+    #         "notes": "Muhasebe Sorumlusu"
+    #       }
+    #     ]
+    #   }
+    # }
   end
 end
