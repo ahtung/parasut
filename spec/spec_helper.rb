@@ -41,7 +41,7 @@ RSpec.configure do |config|
     stub_request(:post, 'https://api.parasut.com/v1/100174/contacts').to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
 
     stub_request(:get, 'https://api.parasut.com/v1/100174/sales_invoices/1205839')
-      .to_return(status: 200, body: { contact: { id: '1205839' } }.to_json, headers: {})
+      .to_return(status: 200, body: { sales_invoice: { id: '1205839' } }.to_json, headers: {})
     stub_request(:delete, 'https://api.parasut.com/v1/100174/sales_invoices/1205839')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
     stub_request(:get, 'https://api.parasut.com/v1/100174/sales_invoices')

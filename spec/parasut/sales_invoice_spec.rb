@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-RSpec.xdescribe Parasut::SalesInvoice do
+RSpec.fdescribe Parasut::SalesInvoice do
   subject { described_class.new }
 
   # Attributes
@@ -32,7 +32,7 @@ RSpec.xdescribe Parasut::SalesInvoice do
   # Instance methods
   describe '#' do
     describe 'delete' do
-      it 'deletes a contact' do
+      xit 'deletes a contact' do
         sales_invoice = Parasut::SalesInvoice.find(1_205_839)
         expect(sales_invoice.delete).to eq(true)
       end

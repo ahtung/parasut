@@ -15,7 +15,7 @@ module Parasut
     attr_accessor *ATTRIBUTES
 
     # Initializer
-    def initialize(options)
+    def initialize(options = {})
       @id = options[:id]
       @created_at = options[:created_at]
       @item_type = options[:item_type]
