@@ -32,11 +32,47 @@ RSpec.configure do |config|
     stub_request(:get, 'https://api.parasut.com/v1/me')
       .to_return(status: 200, body: '', headers: {})
 
+    stub_request(:put, 'https://api.parasut.com/v1/100174/contacts/1')
+      .to_return(status: 200, body: {
+        "contact": {
+          "id": 1,
+          "name": "Test",
+          "email": "user@mailhost.com",
+          "contact_type": "company",
+          "tax_number": "1234567890",
+          "tax_office": "Beyoglu",
+          "balance": "0.0",
+          "estimate_balance": "0.0",
+          "archived": false,
+          "contact_people": [
+            {
+              "id": 17,
+              "name": "Ahmet Bilir",
+              "phone": "532 123 4567",
+              "email": "ahmet@mailhost.com",
+              "notes": "Muhasebe Sorumlusu"
+            }
+          ],
+          "address": {
+            "id": 575,
+            "address": "Guzel Mahalle Istanbul",
+            "phone": "123 123 4567",
+            "fax": nil
+          },
+          "category": {
+            "id": 3,
+            "name": "Mimarlık şirketleri",
+            "bg_color": "5cbc68",
+            "text_color": "f3f2f2"
+          }
+        }
+      }.to_json, headers: {})
+
     stub_request(:get, 'https://api.parasut.com/v1/100174/contacts/1')
       .to_return(status: 200, body: {
         "contact": {
           "id": 1,
-          "name": "ABC LTD. STI.",
+          "name": "Test",
           "email": "user@mailhost.com",
           "contact_type": "company",
           "tax_number": "1234567890",

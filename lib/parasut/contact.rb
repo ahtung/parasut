@@ -5,7 +5,7 @@ module Parasut
     PATH = 'contacts'.freeze
     ATTRIBUTES = [
       :id, :name, :contact_type, :email, :balance, :tax_office,
-      :tax_number, :archived, :category, :address, :contact_people
+      :tax_number, :archived#, :category, :address, :contact_people
     ].freeze
 
     # Attributes
@@ -13,8 +13,17 @@ module Parasut
 
     # Constructor
     def initialize(options = {})
-      self.id = options['id']
-      self.name = options['name']
+      @id = options['id']
+      @name = options['name']
+      @contact_type = options['contact_type']
+      @email = options['email']
+      @balance = options['balance']
+      @tax_office = options['tax_office']
+      @tax_number = options['tax_number']
+      @archived = options['archived']
+      # @category = options['category']
+      # TODO address
+      # TODO contact_people
     end
 
     # Class methods
@@ -40,6 +49,51 @@ module Parasut
     end
 
     # Instance methods
+    def attributes
+      {
+        contact: {
+          name: @name,
+          contact_type: @contact_type,
+          email: @email,
+          tax_number: @tax_number,
+          tax_office: @tax_office,
+          category_id: nil,
+          city: 'Ankara',
+          district: 'Ghetto',
+          address_attributes: {
+            address: 'Loosduinseweg 889',
+            fax: '00',
+            phone: '0626689471'
+          },
+          contact_people_attributes: [
+            {
+              name: 'Dunya Kirkali',
+              phone: '0626689471',
+              email: 'dunya@ahtung.co',
+              notes: 'Weird'
+            },
+            {
+              name: 'Dunya Kirkali',
+              phone: '0626689471',
+              email: 'dunya@gmail.co',
+              notes: 'Good lookin'
+            }
+          ]
+        }
+      }
+    end
+
+    def reload
+      JSON.parse(Parasut::Client.get(self.class.instance_path(id)))['contact'].each do |key, value|
+        send("#{key}=", value) if [*ATTRIBUTES].include?(key.to_sym)
+      end
+    end
+
+    def save
+      Parasut::Client.update(self.class.instance_path(id), attributes) unless id.nil?
+      Parasut::Client.create(self.class.instance_path(id), attributes) if id.nil?
+    end
+
     def outstanding_payments
       JSON.parse(Parasut::Client.get("#{self.class.instance_path(id)}/outstanding_payments"))['items']
     end
@@ -51,32 +105,5 @@ module Parasut
     def delete
       JSON.parse(Parasut::Client.delete(self.class.instance_path(id)))['success'] == 'OK'
     end
-
-    # Sample create request
-    # {
-    #   "contact": {
-    #     "name": "ABC LTD. STI.",
-    #     "contact_type": "company",
-    #     "email": "user@mailhost.com",
-    #     "tax_number": "1234567890",
-    #     "tax_office": "Beyoglu",
-    #     "category_id": 3,
-    #     "city": "İstanbul",
-    #     "district": "Beyoğlu",
-    #     "address_attributes": {
-    #       "address": "Guzel Mahalle Cicek sokak",
-    #       "fax": null,
-    #       "phone": "123 123 4567"
-    #     },
-    #     "contact_people_attributes": [
-    #       {
-    #         "name": "Ahmet Bilir",
-    #         "phone": "532 123 4567",
-    #         "email": "ahmet@mailhost.com",
-    #         "notes": "Muhasebe Sorumlusu"
-    #       }
-    #     ]
-    #   }
-    # }
   end
 end

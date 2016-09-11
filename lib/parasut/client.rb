@@ -10,7 +10,11 @@ module Parasut
     end
 
     def self.create(url, attrs)
-      RestClient.post([BASE_URL, API_VERSION, url].join('/'), headers)
+      RestClient.post([BASE_URL, API_VERSION, url].join('/'), attrs, headers)
+    end
+
+    def self.update(url, attrs)
+      RestClient.put([BASE_URL, API_VERSION, url].join('/'), attrs, headers) { |response, request, result| puts response }
     end
 
     def self.delete(url)
@@ -37,8 +41,8 @@ module Parasut
 
     def self.refresh_token_params
       {
-        client_id: Parasut.options.client_id,
-        client_secret: Parasut.options.client_secret,
+        client_id: ENV['PARASUT_CLIENT_ID'],
+        client_secret: ENV['PARASUT_CLIENT_SECRET'],
         grant_type: 'refresh_token',
         refresh_token: password['refresh_token']
       }
@@ -46,10 +50,10 @@ module Parasut
 
     def self.password_params
       {
-        client_id: Parasut.options.client_id,
-        client_secret: Parasut.options.client_secret,
-        username: Parasut.options.username,
-        password: Parasut.options.password,
+        client_id: ENV['PARASUT_CLIENT_ID'],
+        client_secret: ENV['PARASUT_CLIENT_SECRET'],
+        username: ENV['PARASUT_USERNAME'],
+        password: ENV['PARASUT_PASSWORD'],
         grant_type: 'password',
         redirect_uri: 'urn:ietf:wg:oauth:2.0:oob'
       }
