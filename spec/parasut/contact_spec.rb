@@ -3,11 +3,6 @@ require 'spec_helper'
 RSpec.describe Parasut::Contact do
   subject { described_class.new }
 
-  # Attributes
-  Parasut::Contact::ATTRIBUTES.each do |attribute|
-    xit { should have_attr_accessor(attribute.to_sym) }
-  end
-
   # Class methods
   describe '.' do
     describe 'all' do
