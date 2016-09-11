@@ -26,6 +26,25 @@ RSpec.describe Parasut::Contact do
 
   # Instance methods
   describe '#' do
+    describe 'reload' do
+      it 'reloads contact info' do
+        contact = Parasut::Contact.find(1)
+        contact.name = 'Test'
+        contact.reload
+        expect(contact.name).not_to eq('Test')
+      end
+    end
+
+    describe 'save' do
+      it 'saves contact' do
+        contact = Parasut::Contact.find(1)
+        contact.name = 'Test'
+        contact.save
+        contact.reload
+        expect(contact.name).to eq('Test')
+      end
+    end
+
     describe 'delete' do
       it 'deletes a contact' do
         contact = Parasut::Contact.find(1)
