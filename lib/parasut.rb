@@ -2,6 +2,7 @@ require 'active_support'
 require 'rest-client'
 require 'uri'
 require 'pry'
+require 'json'
 
 require_relative 'parasut/version'
 require_relative 'parasut/options'
