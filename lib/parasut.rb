@@ -6,6 +6,7 @@ require 'pry'
 
 module Her
   module Middleware
+    # OAuthProviderHeader
     class OAuthProviderHeader < Faraday::Middleware
       def add_header(headers)
         headers.merge! Authorization: "Bearer #{refresh_token['access_token']}"
@@ -53,13 +54,14 @@ module Her
   end
 end
 
+# ParasutParser
 class ParasutParser < Her::Middleware::DefaultParseJSON
   def parse(body)
     json = parse_json(body)
     {
       data: json[:items] || {},
       errors: json[:errors] || [],
-      metadata: json[:meta] || {},
+      metadata: json[:meta] || {}
     }
   end
 end
