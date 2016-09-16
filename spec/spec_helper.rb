@@ -20,10 +20,24 @@ RSpec.configure do |config|
 
   config.before(:each) do
     stub_request(:post, "https://api.parasut.com/oauth/token?client_id=client_id&client_secret=client_secret&grant_type=password&password=password&redirect_uri=urn:ietf:wg:oauth:2.0:oob&username=username").
-      to_return(status: 200, body: '{"access_token":"e9e13c1dec7e2f6c9550f8eb1801cf48e8b8caaca611508ff3330155f8bfbe99","token_type":"bearer","expires_in":7200,"refresh_token":"a880825d3e1ee8b0ad5dd5b0ed099d11aa175934fc63190149750589833242bf","scope":"public","created_at":1473538387}'.to_json, headers: {})
+      to_return(status: 200, body: {
+        access_token: "e9e13c1dec7e2f6c9550f8eb1801cf48e8b8caaca611508ff3330155f8bfbe99",
+        token_type: "bearer",
+        expires_in: 7200,
+        refresh_token: "refresh_token",
+        scope: "public",
+        created_at: 1473538387
+      }.to_json, headers: {})
 
     stub_request(:post, "https://api.parasut.com/oauth/token?client_id=client_id&client_secret=client_secret&grant_type=refresh_token&refresh_token=refresh_token").
-      to_return(status: 200, body: '{"access_token":"e9e13c1dec7e2f6c9550f8eb1801cf48e8b8caaca611508ff3330155f8bfbe99","token_type":"bearer","expires_in":7200,"refresh_token":"a880825d3e1ee8b0ad5dd5b0ed099d11aa175934fc63190149750589833242bf","scope":"public","created_at":1473538387}'.to_json, headers: {})
+      to_return(status: 200, body: {
+        access_token: "e9e13c1dec7e2f6c9550f8eb1801cf48e8b8caaca611508ff3330155f8bfbe99",
+        token_type: "bearer",
+        expires_in: 7200,
+        refresh_token: "a880825d3e1ee8b0ad5dd5b0ed099d11aa175934fc63190149750589833242bf",
+        scope: "public",
+        created_at: 1473538387
+      }.to_json, headers: {})
 
     # /products
     # PUT /products/1
