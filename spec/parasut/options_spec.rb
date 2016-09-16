@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Parasut::Options do
+RSpec.describe Parasut::Options do
   let!(:parasut) do
     Parasut.options do |options|
       options.client_id = 'client_id'

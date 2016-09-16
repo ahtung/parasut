@@ -1,18 +1,8 @@
 # lib/parasut/product.rb
 module Parasut
   # Product
-  class Product < Parasut::Base
-    ATTRIBUTES = [:code, :name, :vat_rate, :currency, :list_price, :archived, :category].freeze
-
-    # Attributes
-    attr_accessor *ATTRIBUTES
-
-    def initialize(options)
-      id = options['id']
-    end
-
-    def self.path
-      'products'
-    end
+  class Product
+    include Her::Model
+    include_root_in_json true
   end
 end
