@@ -1,6 +1,8 @@
 require 'her'
 require 'json'
 require 'uri'
+require 'kaminari'
+require 'kaminari/models/array_extension'
 require 'rest_client'
 require 'pry'
 
@@ -54,20 +56,24 @@ module Her
   end
 end
 
-# ParasutParser
-class ParasutParser < Her::Middleware::DefaultParseJSON
-  def parse(body)
-    json = parse_json(body)
-    {
-      data: json[:items] || {},
-      errors: json[:errors] || [],
-      metadata: json[:meta] || {}
-    }
+module Her
+  module Middleware
+    # ParasutParser
+    class ParasutParser < Her::Middleware::DefaultParseJSON
+      def parse(body)
+        json = parse_json(body)
+        {
+          data: json[:items] || {},
+          errors: json[:errors] || [],
+          metadata: json[:meta] || {}
+        }
+      end
+    end
   end
 end
 
 Her::API.setup url: "https://api.parasut.com/v1/#{ENV['PARSUT_COMPANY_ID']}" do |config|
-  config.use ParasutParser
+  config.use Her::Middleware::ParasutParser
   config.use Faraday::Request::UrlEncoded
   config.use Her::Middleware::OAuthProviderHeader
   config.use Faraday::Adapter::NetHttp
@@ -75,6 +81,7 @@ end
 
 require_relative 'parasut/version'
 require_relative 'parasut/options'
+require_relative 'parasut/paginated'
 require_relative 'parasut/product'
 require_relative 'parasut/contact'
 require_relative 'parasut/item_category'
