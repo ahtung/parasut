@@ -79,6 +79,7 @@ require_relative 'parasut/product'
 require_relative 'parasut/contact'
 require_relative 'parasut/item_category'
 require_relative 'parasut/account'
+require_relative 'parasut/sales_invoice'
 
 # lib/parasut.rb
 module Parasut
