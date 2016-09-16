@@ -1,4 +1,5 @@
 module Parasut
+  # Paginated
   module Paginated
     def self.new_collection(parsed_data)
       pagination = parsed_data[:metadata]
