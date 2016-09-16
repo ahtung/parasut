@@ -335,6 +335,5 @@ RSpec.configure do |config|
           per_page: 25
         }
       }.to_json, headers: {})
-
   end
 end

@@ -2,7 +2,7 @@ RSpec.shared_examples 'her model' do
   # Class methods
   describe '.' do
     describe 'all' do
-      it "#{described_class}" do
+      it described_class do
         expect(described_class.all.length).not_to eq(0)
       end
     end
