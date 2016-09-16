@@ -221,5 +221,64 @@ RSpec.configure do |config|
       }
     }.to_json, headers: {})
 
+
+    # /item_categories
+    # PUT /item_categories/1
+    stub_request(:put, 'https://api.parasut.com/v1/item_categories/1')
+      .to_return(status: 200, body: {
+        item_category: {
+          id: 3,
+          category_type: "Contact",
+          name: "Mimarlık şirketleri",
+          bg_color: "5cbc68",
+          text_color: "f3f2f2"
+        }
+      }.to_json, headers: {})
+
+    # GET /item_categories/1
+    stub_request(:get, 'https://api.parasut.com/v1/item_categories/1')
+      .to_return(status: 200, body: {
+        item_category: {
+          id: 3,
+          category_type: "Contact",
+          name: "Mimarlık şirketleri",
+          bg_color: "5cbc68",
+          text_color: "f3f2f2"
+        }
+      }.to_json, headers: {})
+
+    # DELETE /item_categories/1
+    stub_request(:delete, 'https://api.parasut.com/v1/item_categories')
+      .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
+
+    # GET /item_categories
+    stub_request(:get, 'https://api.parasut.com/v1/item_categories')
+      .to_return(status: 200, body: {
+        "items": [
+          {
+            "id": 3,
+            "category_type": "Contact",
+            "name": "Mimarlık şirketleri",
+            "bg_color": "5cbc68",
+            "text_color": "f3f2f2"
+          }
+        ],
+        "meta": {
+          "item_count": 1,
+          "page_count": 1,
+          "per_page": 25
+        }
+      }.to_json, headers: {})
+
+    # POST /item_categories/1
+    stub_request(:post, 'https://api.parasut.com/v1/item_categories').to_return(status: 200, body: {
+      "item_category": {
+        "id": 3,
+        "category_type": "Contact",
+        "name": "Mimarlık şirketleri",
+        "bg_color": "5cbc68",
+        "text_color": "f3f2f2"
+      }
+    }.to_json, headers: {})
   end
 end
