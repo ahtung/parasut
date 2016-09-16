@@ -1,4 +1,5 @@
 require 'spec_helper'
 
-RSpec.xdescribe Parasut::Product do
+RSpec.describe Parasut::Product do
+    it_behaves_like 'her model'
 end

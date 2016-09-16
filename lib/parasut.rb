@@ -18,8 +18,8 @@ module Her
 
       def refresh_token_params
         {
-          client_id: ENV['PARSUT_CLIENT_ID'],
-          client_secret: ENV['PARSUT_CLIENT_SECRET'],
+          client_id: ENV['PARASUT_CLIENT_ID'],
+          client_secret: ENV['PARASUT_CLIENT_SECRET'],
           grant_type: 'refresh_token',
           refresh_token: password['refresh_token']
         }
@@ -27,8 +27,8 @@ module Her
 
       def password_params
         {
-          client_id: ENV['PARSUT_CLIENT_ID'],
-          client_secret: ENV['PARSUT_CLIENT_SECRET'],
+          client_id: ENV['PARASUT_CLIENT_ID'],
+          client_secret: ENV['PARASUT_CLIENT_SECRET'],
           username: ENV['PARASUT_USERNAME'],
           password: ENV['PARASUT_PASSWORD'],
           grant_type: 'password',
