@@ -5,6 +5,11 @@
 
 You can sign up for an parasut account at https://www.parasut.com/
 
+## Dependencies
+
+- her
+- rest_client
+
 ## Requirements
 
 * Ruby 2.0.0 or newer
