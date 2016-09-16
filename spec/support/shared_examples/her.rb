@@ -2,19 +2,20 @@ RSpec.shared_examples 'her model' do
   # Class methods
   describe '.' do
     describe 'all' do
-      it 'returns all contacts' do
+      it "#{described_class}" do
         expect(described_class.all.length).not_to eq(0)
       end
     end
 
     describe 'create' do
-      it 'creates a new contact' do
+      it "a new #{described_class}" do
+        skip if %w(Parasut::Account).include? described_class.name
         expect(described_class.create(name: 'Test')).to be_instance_of(described_class)
       end
     end
 
     describe 'find' do
-      it 'returns a contact instance' do
+      it "an #{described_class} instance" do
         expect(described_class.find(1)).to be_instance_of(described_class)
       end
     end
@@ -23,7 +24,8 @@ RSpec.shared_examples 'her model' do
   # Instance methods
   describe '#' do
     describe 'destroy' do
-      it 'destroy a contact' do
+      it "a #{described_class}" do
+        skip if %w(Parasut::Account).include? described_class.name
         contact = described_class.find(1)
         expect(contact.destroy).to be_instance_of(described_class)
       end

@@ -279,5 +279,62 @@ RSpec.configure do |config|
         text_color: 'f3f2f2'
       }
     }.to_json, headers: {})
+
+    # /accounts
+    # GET /accounts/1
+    stub_request(:get, 'https://api.parasut.com/v1/accounts/1')
+      .to_return(status: 200, body: {
+        account: {
+          id: 2,
+          name: 'TEB Ataşehir Vadesiz TL',
+          account_type: 'bank',
+          balance: '1000.00',
+          bank_name: 'TEB',
+          bank_branch: 'Ataşehir',
+          bank_account_no: '12345',
+          iban: '12345678',
+          archived: false
+        },
+        transactions: {
+          items: [
+            {
+              account_id: nil,
+              account_name: nil,
+              amount: '200.0',
+              date: '2014-05-19',
+              debit_credit: nil,
+              description: 'Ön ödeme',
+              issue_date: nil,
+              id: 2003,
+              item_id: 502,
+              transaction_type: 'collection'
+            }
+          ],
+          meta: {
+            item_count: 1,
+            page_count: 1,
+            per_page: 25
+          }
+        }
+      }.to_json, headers: {})
+
+    # GET /accounts
+    stub_request(:get, 'https://api.parasut.com/v1/accounts')
+      .to_return(status: 200, body: {
+        items: [
+          {
+            id: 1,
+            name: 'Kasa Hesabı',
+            account_type: 'cash',
+            balance: '0.00'
+          }
+        ],
+        meta: {
+          item_count: 1,
+          page_count: 1,
+          per_page: 25
+        }
+      }.to_json, headers: {})
+
   end
 end
