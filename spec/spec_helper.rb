@@ -19,15 +19,15 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
-    stub_request(:post, "https://api.parasut.com/oauth/token?client_id=#{ENV['PARASUT_CLIENT_ID']}&client_secret=#{ENV['PARASUT_CLIENT_SECRET']}&grant_type=password&password=#{ENV['PARASUT_PASSWORD']}&redirect_uri=urn:ietf:wg:oauth:2.0:oob&username=#{ENV['PARASUT_USERNAME']}").
+    stub_request(:post, "https://api.parasut.com/oauth/token?client_id=client_id&client_secret=client_secret&grant_type=password&password=password&redirect_uri=urn:ietf:wg:oauth:2.0:oob&username=username").
       to_return(status: 200, body: '{"access_token":"e9e13c1dec7e2f6c9550f8eb1801cf48e8b8caaca611508ff3330155f8bfbe99","token_type":"bearer","expires_in":7200,"refresh_token":"a880825d3e1ee8b0ad5dd5b0ed099d11aa175934fc63190149750589833242bf","scope":"public","created_at":1473538387}'.to_json, headers: {})
 
-    stub_request(:post, "https://api.parasut.com/oauth/token?client_id=#{ENV['PARASUT_CLIENT_ID']}&client_secret=#{ENV['PARASUT_CLIENT_SECRET']}&grant_type=refresh_token&refresh_token=refresh_token").
+    stub_request(:post, "https://api.parasut.com/oauth/token?client_id=client_id&client_secret=client_secret&grant_type=refresh_token&refresh_token=refresh_token").
       to_return(status: 200, body: '{"access_token":"e9e13c1dec7e2f6c9550f8eb1801cf48e8b8caaca611508ff3330155f8bfbe99","token_type":"bearer","expires_in":7200,"refresh_token":"a880825d3e1ee8b0ad5dd5b0ed099d11aa175934fc63190149750589833242bf","scope":"public","created_at":1473538387}'.to_json, headers: {})
 
     # /products
     # PUT /products/1
-    stub_request(:put, 'https://api.parasut.com/v1/100174/products/1')
+    stub_request(:put, 'https://api.parasut.com/v1/products/1')
       .to_return(status: 200, body: {
         "product": {
           "id": 1,
@@ -47,7 +47,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # GET /products/1
-    stub_request(:get, 'https://api.parasut.com/v1/100174/products/1')
+    stub_request(:get, 'https://api.parasut.com/v1/products/1')
       .to_return(status: 200, body: {
         "product": {
           "id": 1,
@@ -67,11 +67,11 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # DELETE /products/1
-    stub_request(:delete, 'https://api.parasut.com/v1/100174/products')
+    stub_request(:delete, 'https://api.parasut.com/v1/products')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
 
     # GET /products
-    stub_request(:get, 'https://api.parasut.com/v1/100174/products')
+    stub_request(:get, 'https://api.parasut.com/v1/products')
       .to_return(status: 200, body: {
         "items": [
           {
@@ -98,7 +98,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # POST /products/1
-    stub_request(:post, 'https://api.parasut.com/v1/100174/products').to_return(status: 200, body: {
+    stub_request(:post, 'https://api.parasut.com/v1/products').to_return(status: 200, body: {
       "product": {
         "id": 1,
         "code": nil,
