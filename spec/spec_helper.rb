@@ -10,11 +10,11 @@ require 'parasut'
 RSpec.configure do |config|
   config.before(:suite) do
     Parasut.options do |options|
-      options.client_id = ENV['PARASUT_CLIENT_ID']
-      options.client_secret = ENV['PARASUT_CLIENT_SECRET']
-      options.username = ENV['PARASUT_USERNAME']
-      options.password = ENV['PARASUT_PASSWORD']
-      options.company_id = ENV['PARASUT_COMPANY_ID']
+      options.client_id = 'client_id'
+      options.client_secret = 'client_secret'
+      options.username = 'username'
+      options.password = 'password'
+      options.company_id = 'company_id'
     end
   end
 
@@ -129,5 +129,97 @@ RSpec.configure do |config|
         }
       }
     }.to_json, headers: {})
+
+    # /contacts
+    # PUT /contacts/1
+    stub_request(:put, 'https://api.parasut.com/v1/contacts/1')
+      .to_return(status: 200, body: {
+        product: {
+          id: 1,
+          code: nil,
+          name: 'Gazete - dergi insert',
+          vat_rate: '18.0',
+          currency: 'TRL',
+          list_price: '1500.00',
+          archived: false,
+          category: {
+            id: 5,
+            name: 'Baskı',
+            bg_color: '5cbc68',
+            text_color: 'f3f2f2'
+          }
+        }
+      }.to_json, headers: {})
+
+    # GET /contacts/1
+    stub_request(:get, 'https://api.parasut.com/v1/contacts/1')
+      .to_return(status: 200, body: {
+        product: {
+          id: 1,
+          code: nil,
+          name: 'Gazete - dergi insert',
+          vat_rate: '18.0',
+          currency: 'TRL',
+          list_price: '1500.00',
+          archived: false,
+          category: {
+            id: 5,
+            name: 'Baskı',
+            bg_color: '5cbc68',
+            text_color: 'f3f2f2'
+          }
+        }
+      }.to_json, headers: {})
+
+    # DELETE /contacts/1
+    stub_request(:delete, 'https://api.parasut.com/v1/contacts')
+      .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
+
+    # GET /contacts
+    stub_request(:get, 'https://api.parasut.com/v1/contacts')
+      .to_return(status: 200, body: {
+        items: [
+          {
+            id: 1,
+            code: nil,
+            name: 'Gazete - dergi insert',
+            vat_rate: '18.0',
+            currency: 'TRL',
+            list_price: '1500.00',
+            archived: false,
+            category: {
+              id: 5,
+              name: 'Baskı',
+              bg_color: '5cbc68',
+              text_color: 'f3f2f2'
+            }
+          }
+        ],
+        meta: {
+          item_count: 1,
+          page_count: 1,
+          per_page: 25
+        }
+      }.to_json, headers: {})
+
+    # POST /contacts/1
+    stub_request(:post, 'https://api.parasut.com/v1/contacts').to_return(status: 200, body: {
+      product: {
+        id: 1,
+        code: nil,
+        name: 'Gazete - dergi insert',
+        vat_rate: '18.0',
+        currency: 'TRL',
+        list_price: '1500.00',
+        archived: false,
+        category: {
+          id: 5,
+          name: 'Baskı',
+          bg_color: '5cbc68',
+          text_color: 'f3f2f2'
+        }
+      }
+    }.to_json, headers: {})
+
   end
 end

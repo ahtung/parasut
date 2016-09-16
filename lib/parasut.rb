@@ -76,6 +76,7 @@ end
 require_relative 'parasut/version'
 require_relative 'parasut/options'
 require_relative 'parasut/product'
+require_relative 'parasut/contact'
 
 # lib/parasut.rb
 module Parasut
