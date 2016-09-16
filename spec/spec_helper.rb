@@ -134,37 +134,72 @@ RSpec.configure do |config|
     # PUT /contacts/1
     stub_request(:put, 'https://api.parasut.com/v1/contacts/1')
       .to_return(status: 200, body: {
-        product: {
+        contact: {
           id: 1,
-          code: nil,
-          name: 'Gazete - dergi insert',
-          vat_rate: '18.0',
-          currency: 'TRL',
-          list_price: '1500.00',
+          name: 'ABC LTD. STI.',
+          email: 'user@mailhost.com',
+          contact_type: 'company',
+          tax_number: '1234567890',
+          tax_office: 'Beyoglu',
+          balance: '0.0',
+          estimate_balance: '0.0',
           archived: false,
+          contact_people: [
+            {
+              id: 17,
+              name: 'Ahmet Bilir',
+              phone: '532 123 4567',
+              email: 'ahmet@mailhost.com',
+              notes: 'Muhasebe Sorumlusu'
+            }
+          ],
+          address: {
+            id: 575,
+            address: 'Guzel Mahalle Istanbul',
+            phone: '123 123 4567',
+            fax: nil
+          },
           category: {
-            id: 5,
-            name: 'Baskı',
+            id: 3,
+            name: 'Mimarlık şirketleri',
             bg_color: '5cbc68',
             text_color: 'f3f2f2'
           }
         }
-      }.to_json, headers: {})
+      }
+      .to_json, headers: {})
 
     # GET /contacts/1
     stub_request(:get, 'https://api.parasut.com/v1/contacts/1')
       .to_return(status: 200, body: {
-        product: {
+        contact: {
           id: 1,
-          code: nil,
-          name: 'Gazete - dergi insert',
-          vat_rate: '18.0',
-          currency: 'TRL',
-          list_price: '1500.00',
+          name: 'ABC LTD. STI.',
+          email: 'user@mailhost.com',
+          contact_type: 'company',
+          tax_number: '1234567890',
+          tax_office: 'Beyoglu',
+          balance: '0.0',
+          estimate_balance: '0.0',
           archived: false,
+          contact_people: [
+            {
+              id: 17,
+              name: 'Ahmet Bilir',
+              phone: '532 123 4567',
+              email: 'ahmet@mailhost.com',
+              notes: 'Muhasebe Sorumlusu'
+            }
+          ],
+          address: {
+            id: 575,
+            address: 'Guzel Mahalle Istanbul',
+            phone: '123 123 4567',
+            fax: nil
+          },
           category: {
-            id: 5,
-            name: 'Baskı',
+            id: 3,
+            name: 'Mimarlık şirketleri',
             bg_color: '5cbc68',
             text_color: 'f3f2f2'
           }
@@ -181,15 +216,32 @@ RSpec.configure do |config|
         items: [
           {
             id: 1,
-            code: nil,
-            name: 'Gazete - dergi insert',
-            vat_rate: '18.0',
-            currency: 'TRL',
-            list_price: '1500.00',
+            name: 'ABC LTD. STI.',
+            email: 'user@mailhost.com',
+            contact_type: 'company',
+            tax_number: '1234567890',
+            tax_office: 'Beyoglu',
+            balance: '0.0',
+            estimate_balance: '0.0',
             archived: false,
+            contact_people: [
+              {
+                id: 17,
+                name: 'Ahmet Bilir',
+                phone: '532 123 4567',
+                email: 'ahmet@mailhost.com',
+                notes: 'Muhasebe Sorumlusu'
+              }
+            ],
+            address: {
+              id: 575,
+              address: 'Guzel Mahalle Istanbul',
+              phone: '123 123 4567',
+              fax: nil
+            },
             category: {
-              id: 5,
-              name: 'Baskı',
+              id: 3,
+              name: 'Mimarlık şirketleri',
               bg_color: '5cbc68',
               text_color: 'f3f2f2'
             }
@@ -204,17 +256,34 @@ RSpec.configure do |config|
 
     # POST /contacts/1
     stub_request(:post, 'https://api.parasut.com/v1/contacts').to_return(status: 200, body: {
-      product: {
+      contact: {
         id: 1,
-        code: nil,
-        name: 'Gazete - dergi insert',
-        vat_rate: '18.0',
-        currency: 'TRL',
-        list_price: '1500.00',
+        name: 'ABC LTD. STI.',
+        email: 'user@mailhost.com',
+        contact_type: 'company',
+        tax_number: '1234567890',
+        tax_office: 'Beyoglu',
+        balance: '0.0',
+        estimate_balance: '0.0',
         archived: false,
+        contact_people: [
+          {
+            id: 17,
+            name: 'Ahmet Bilir',
+            phone: '532 123 4567',
+            email: 'ahmet@mailhost.com',
+            notes: 'Muhasebe Sorumlusu'
+          }
+        ],
+        address: {
+          id: 575,
+          address: 'Guzel Mahalle Istanbul',
+          phone: '123 123 4567',
+          fax: nil
+        },
         category: {
-          id: 5,
-          name: 'Baskı',
+          id: 3,
+          name: 'Mimarlık şirketleri',
           bg_color: '5cbc68',
           text_color: 'f3f2f2'
         }
