@@ -4,6 +4,7 @@ module Parasut
   class Contact
     include Her::Model
     include_root_in_json true
+    parse_root_in_json true
 
     def outstanding_payments
       self.class.get_raw("sales_invoices/1#{id}/outstanding_payments") do |parsed_data, response|
