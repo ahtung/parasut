@@ -2,7 +2,7 @@ require 'webmock/rspec'
 require 'json'
 require 'simplecov'
 require 'coveralls'
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter::new([SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter])
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter])
 SimpleCov.start
 require 'webmock/rspec'
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
@@ -200,8 +200,8 @@ RSpec.configure do |config|
           {
             account_id: nil,
             account_name: nil,
-            amount: "200.0",
-            date: "2014-05-19",
+            amount: '200.0',
+            date: '2014-05-19',
             debit_credit: nil,
             description: 'On odeme',
             issue_date: nil,
@@ -477,78 +477,78 @@ RSpec.configure do |config|
           description: 'Büyük müşteri Nisan 2014 hizmet',
           issue_date: '2014-05-15',
           due_date: nil,
-          gross_total: "1500.0",
-          total_discount: "0.0",
-          total_vat: "270.0",
-          created_at: "2014-05-15 00:00:00 UTC",
-          item_type: "invoice",
-          remaining: "0.0",
-          total_paid: "1770.0",
-          invoice_series: "A",
+          gross_total: '1500.0',
+          total_discount: '0.0',
+          total_vat: '270.0',
+          created_at: '2014-05-15 00:00:00 UTC',
+          item_type: 'invoice',
+          remaining: '0.0',
+          total_paid: '1770.0',
+          invoice_series: 'A',
           invoice_id: 1,
           printed_at: nil,
           archived: false,
-          billing_address: "Guzel Mahalle Istanbul",
-          billing_phone: "123 123 4567",
+          billing_address: 'Guzel Mahalle Istanbul',
+          billing_phone: '123 123 4567',
           billing_fax: nil,
-          tax_office: "12345678901",
-          tax_number: "Beşiktaş",
+          tax_office: '12345678901',
+          tax_number: 'Beşiktaş',
           shipment_date: nil,
-          net_total: "1770.0",
-          payment_status: "paid",
+          net_total: '1770.0',
+          payment_status: 'paid',
           days_overdue: 0,
           days_outstanding: 0,
           category: {
             id: 2,
-            name: "Aylık",
-            bg_color: "5cbc68",
-            text_color: "f3f2f2"
+            name: 'Aylık',
+            bg_color: '5cbc68',
+            text_color: 'f3f2f2'
           },
           contact: {
             id: 1,
-            name: "ABC LTD. STI.",
-            tax_number: "1234567890",
-            tax_office: "Beyoglu",
-            balance: "0.0",
-            estimate_balance: "0.0",
+            name: 'ABC LTD. STI.',
+            tax_number: '1234567890',
+            tax_office: 'Beyoglu',
+            balance: '0.0',
+            estimate_balance: '0.0',
             address: {
-              "id": 575,
-              "address": "Guzel Mahalle Istanbul",
-              "phone": "123 123 4567",
-              "fax": nil
+              id: 575,
+              address: 'Guzel Mahalle Istanbul',
+              phone: '123 123 4567',
+              fax: nil
             }
           },
-          "details": [
+          details: [
             {
-              "id": 1,
-              "detail_no": 1,
-              "quantity": "1.0",
-              "unit_price": "1500.0",
-              "discount": "0.0",
-              "vat_rate": "18.0",
-              "discount_type": "amount",
-              "discount_rate": nil,
-              "product": {
-                "id": 10,
-                "name": "Aylık Bakım",
-                "vat_rate": "18.0",
-                "currency": "TRL",
-                "list_price": "1500.0"
+              id: 1,
+              detail_no: 1,
+              quantity: '1.0',
+              unit_price: '1500.0',
+              discount: '0.0',
+              vat_rate: '18.0',
+              discount_type: 'amount',
+              discount_rate: nil,
+              product: {
+                id: 10,
+                name: 'Aylık Bakım',
+                vat_rate: '18.0',
+                currency: 'TRL',
+                list_price: '1500.0'
               }
             }
           ],
-          "payments": [
+          payments: [
             {
-              "id": 1,
-              "date": "2014-06-15",
-              "payable_id": 1,
-              "payable_type": "SalesInvoice",
-              "amount": "1770.0",
-              "notes": nil,
-              "flow": "in",
-              "is_overdue": false,
-              "is_paid": true,
-              "paid_on": "2014-06-15"
+              id: 1,
+              date: '2014-06-15',
+              payable_id: 1,
+              payable_type: 'SalesInvoice',
+              amount: '1770.0',
+              notes: nil,
+              flow: 'in',
+              is_overdue: false,
+              is_paid: true,
+              paid_on: '2014-06-15'
             }
           ]
         }
@@ -557,83 +557,83 @@ RSpec.configure do |config|
     # GET /sales_invoices/1
     stub_request(:get, 'https://api.parasut.com/v1/sales_invoices/1')
       .to_return(status: 200, body: {
-          "sales_invoice": {
-            "id": 1,
-            "description": "Büyük müşteri Nisan 2014 hizmet",
-            "issue_date": "2014-05-15",
-            "due_date": nil,
-            "gross_total": "1500.0",
-            "total_discount": "0.0",
-            "total_vat": "270.0",
-            "created_at": "2014-05-15 00:00:00 UTC",
-            "item_type": "invoice",
-            "remaining": "0.0",
-            "total_paid": "1770.0",
-            "invoice_series": "A",
-            "invoice_id": 1,
-            "printed_at": nil,
-            "archived": false,
-            "billing_address": "Guzel Mahalle Istanbul",
-            "billing_phone": "123 123 4567",
-            "billing_fax": nil,
-            "tax_office": "12345678901",
-            "tax_number": "Beşiktaş",
-            "shipment_date": nil,
-            "net_total": "1770.0",
-            "payment_status": "paid",
-            "days_overdue": 0,
-            "days_outstanding": 0,
-            "category": {
-              "id": 2,
-              "name": "Aylık",
-              "bg_color": "5cbc68",
-              "text_color": "f3f2f2"
+          sales_invoice: {
+            id: 1,
+            description: 'Büyük müşteri Nisan 2014 hizmet',
+            issue_date: '2014-05-15',
+            due_date: nil,
+            gross_total: '1500.0',
+            total_discount: '0.0',
+            total_vat: '270.0',
+            created_at: '2014-05-15 00:00:00 UTC',
+            item_type: 'invoice',
+            remaining: '0.0',
+            total_paid: '1770.0',
+            invoice_series: 'A',
+            invoice_id: 1,
+            printed_at: nil,
+            archived: false,
+            billing_address: 'Guzel Mahalle Istanbul',
+            billing_phone: '123 123 4567',
+            billing_fax: nil,
+            tax_office: '12345678901',
+            tax_number: 'Beşiktaş',
+            shipment_date: nil,
+            net_total: '1770.0',
+            payment_status: 'paid',
+            days_overdue: 0,
+            days_outstanding: 0,
+            category: {
+              id: 2,
+              name: 'Aylık',
+              bg_color: '5cbc68',
+              text_color: 'f3f2f2'
             },
-            "contact": {
-              "id": 1,
-              "name": "ABC LTD. STI.",
-              "tax_number": "1234567890",
-              "tax_office": "Beyoglu",
-              "balance": "0.0",
-              "estimate_balance": "0.0",
-              "address": {
-                "id": 575,
-                "address": "Guzel Mahalle Istanbul",
-                "phone": "123 123 4567",
-                "fax": nil
+            contact: {
+              id: 1,
+              name: 'ABC LTD. STI.',
+              tax_number: '1234567890',
+              tax_office: 'Beyoglu',
+              balance: '0.0',
+              estimate_balance: '0.0',
+              address: {
+                id: 575,
+                address: 'Guzel Mahalle Istanbul',
+                phone: '123 123 4567',
+                fax: nil
               }
             },
-            "details": [
+            details: [
               {
-                "id": 1,
-                "detail_no": 1,
-                "quantity": "1.0",
-                "unit_price": "1500.0",
-                "discount": "0.0",
-                "vat_rate": "18.0",
-                "discount_type": "amount",
-                "discount_rate": nil,
-                "product": {
-                  "id": 10,
-                  "name": "Aylık Bakım",
-                  "vat_rate": "18.0",
-                  "currency": "TRL",
-                  "list_price": "1500.0"
+                id: 1,
+                detail_no: 1,
+                quantity: '1.0',
+                unit_price: '1500.0',
+                discount: '0.0',
+                vat_rate: '18.0',
+                discount_type: 'amount',
+                discount_rate: nil,
+                product: {
+                  id: 10,
+                  name: 'Aylık Bakım',
+                  vat_rate: '18.0',
+                  currency: 'TRL',
+                  list_price: '1500.0'
                 }
               }
             ],
-            "payments": [
+            payments: [
               {
-                "id": 1,
-                "date": "2014-06-15",
-                "payable_id": 1,
-                "payable_type": "SalesInvoice",
-                "amount": "1770.0",
-                "notes": nil,
-                "flow": "in",
-                "is_overdue": false,
-                "is_paid": true,
-                "paid_on": "2014-06-15"
+                id: 1,
+                date: '2014-06-15',
+                payable_id: 1,
+                payable_type: 'SalesInvoice',
+                amount: '1770.0',
+                notes: nil,
+                flow: 'in',
+                is_overdue: false,
+                is_paid: true,
+                paid_on: '2014-06-15'
               }
             ]
           }
@@ -646,163 +646,163 @@ RSpec.configure do |config|
       # GET /sales_invoices
       stub_request(:get, 'https://api.parasut.com/v1/sales_invoices')
         .to_return(status: 200, body: {
-  "items": [
-    {
-      "id": 1,
-      "description": "Büyük müşteri Nisan 2014 hizmet",
-      "issue_date": "2014-05-15",
-      "due_date": nil,
-      "gross_total": "1500.0",
-      "total_discount": "0.0",
-      "total_vat": "270.0",
-      "created_at": "2014-05-15 00:00:00 UTC",
-      "item_type": "invoice",
-      "remaining": "0.0",
-      "total_paid": "1770.0",
-      "invoice_series": "A",
-      "invoice_id": 1,
-      "printed_at": nil,
-      "archived": false,
-      "billing_address": "Guzel Mahalle Istanbul",
-      "billing_phone": "123 123 4567",
-      "billing_fax": nil,
-      "tax_office": "12345678901",
-      "tax_number": "Beşiktaş",
-      "shipment_date": nil,
-      "net_total": "1770.0",
-      "payment_status": "paid",
-      "days_overdue": 0,
-      "days_outstanding": 0,
-      "category": {
-        "id": 2,
-        "name": "Aylık",
-        "bg_color": "5cbc68",
-        "text_color": "f3f2f2"
-      },
-      "contact": {
-        "id": 1,
-        "name": "ABC LTD. STI.",
-        "tax_number": "1234567890",
-        "tax_office": "Beyoglu",
-        "balance": "0.0",
-        "estimate_balance": "0.0",
-        "address": {
-          "id": 575,
-          "address": "Guzel Mahalle Istanbul",
-          "phone": "123 123 4567",
-          "fax": nil
-        }
-      },
-      "details": [
-        {
-          "id": 1,
-          "detail_no": 1,
-          "quantity": "1.0",
-          "unit_price": "1500.0",
-          "discount": "0.0",
-          "vat_rate": "18.0",
-          "discount_type": "amount",
-          "discount_rate": nil,
-          "product": {
-            "id": 10,
-            "name": "Aylık Bakım",
-            "vat_rate": "18.0",
-            "currency": "TRL",
-            "list_price": "1500.0"
+          items: [
+            {
+              id: 1,
+              description: 'Büyük müşteri Nisan 2014 hizmet',
+              issue_date: '2014-05-15',
+              due_date: nil,
+              gross_total: '1500.0',
+              total_discount: '0.0',
+              total_vat: '270.0',
+              created_at: '2014-05-15 00:00:00 UTC',
+              item_type: 'invoice',
+              remaining: '0.0',
+              total_paid: '1770.0',
+              invoice_series: 'A',
+              invoice_id: 1,
+              printed_at: nil,
+              archived: false,
+              billing_address: 'Guzel Mahalle Istanbul',
+              billing_phone: '123 123 4567',
+              billing_fax: nil,
+              tax_office: '12345678901',
+              tax_number: 'Beşiktaş',
+              shipment_date: nil,
+              net_total: '1770.0',
+              payment_status: 'paid',
+              days_overdue: 0,
+              days_outstanding: 0,
+              category: {
+                id: 2,
+                name: 'Aylık',
+                bg_color: '5cbc68',
+                text_color: 'f3f2f2'
+              },
+              contact: {
+                id: 1,
+                name: 'ABC LTD. STI.',
+                tax_number: '1234567890',
+                tax_office: 'Beyoglu',
+                balance: '0.0',
+                estimate_balance: '0.0',
+                address: {
+                  id: 575,
+                  address: 'Guzel Mahalle Istanbul',
+                  phone: '123 123 4567',
+                  fax: nil
+                }
+              },
+              details: [
+                {
+                  id: 1,
+                  detail_no: 1,
+                  quantity: '1.0',
+                  unit_price: '1500.0',
+                  discount: '0.0',
+                  vat_rate: '18.0',
+                  discount_type: 'amount',
+                  discount_rate: nil,
+                  product: {
+                    id: 10,
+                    name: 'Aylık Bakım',
+                    vat_rate: '18.0',
+                    currency: 'TRL',
+                    list_price: '1500.0'
+                  }
+                }
+              ],
+              payments: [
+                {
+                  id: 1,
+                  date: '2014-06-15',
+                  payable_id: 1,
+                  payable_type: 'SalesInvoice',
+                  amount: '1770.0',
+                  notes: nil,
+                  flow: 'in',
+                  is_overdue: false,
+                  is_paid: true,
+                  paid_on: '2014-06-15'
+                }
+              ]
+            }
+          ],
+          meta: {
+            item_count: 1,
+            page_count: 1,
+            per_page: 25
           }
-        }
-      ],
-      "payments": [
-        {
-          "id": 1,
-          "date": "2014-06-15",
-          "payable_id": 1,
-          "payable_type": "SalesInvoice",
-          "amount": "1770.0",
-          "notes": nil,
-          "flow": "in",
-          "is_overdue": false,
-          "is_paid": true,
-          "paid_on": "2014-06-15"
-        }
-      ]
-    }
-  ],
-  "meta": {
-    "item_count": 1,
-    "page_count": 1,
-    "per_page": 25
-  }
-}.to_json, headers: {})
+        }.to_json, headers: {})
 
       # POST /sales_invoices/1
       stub_request(:post, 'https://api.parasut.com/v1/sales_invoices').to_return(status: 200, body: {
-  "sales_invoice": {
-    "id": 1,
-    "description": "Büyük müşteri Nisan 2014 hizmet",
-    "issue_date": "2014-05-15",
-    "due_date": "2014-06-15",
-    "gross_total": "1500.0",
-    "total_discount": "0.0",
-    "total_vat": "270.0",
-    "created_at": "2014-05-15 00:00:00 UTC",
-    "item_type": "invoice",
-    "remaining": "0.0",
-    "total_paid": "1770.0",
-    "invoice_series": "A",
-    "invoice_id": 1,
-    "printed_at": nil,
-    "archived": false,
-    "billing_address": "Guzel Mahalle Istanbul",
-    "billing_phone": "123 123 4567",
-    "billing_fax": nil,
-    "tax_office": "12345678901",
-    "tax_number": "Beşiktaş",
-    "shipment_date": nil,
-    "net_total": "1770.0",
-    "payment_status": "paid",
-    "days_overdue": 0,
-    "days_outstanding": 0,
-    "category": {
-      "id": 2,
-      "name": "Aylık",
-      "bg_color": "5cbc68",
-      "text_color": "f3f2f2"
-    },
-    "contact": {
-      "id": 1,
-      "name": "ABC LTD. STI.",
-      "tax_number": "1234567890",
-      "tax_office": "Beyoglu",
-      "balance": "0.0",
-      "estimate_balance": "0.0",
-      "address": {
-        "id": 575,
-        "address": "Guzel Mahalle Istanbul",
-        "phone": "123 123 4567",
-        "fax": nil
-      }
-    },
-    "details": [
-      {
-        "id": 1,
-        "detail_no": 1,
-        "quantity": "1.0",
-        "unit_price": "1500.0",
-        "discount": "0.0",
-        "vat_rate": "18.0",
-        "discount_type": "amount",
-        "discount_rate": nil,
-        "product": {
-          "id": 10,
-          "name": "Aylık Bakım",
-          "vat_rate": "18.0",
-          "currency": "TRL",
-          "list_price": "1500.0"
+        sales_invoice: {
+          id: 1,
+          description: 'Büyük müşteri Nisan 2014 hizmet',
+          issue_date: '2014-05-15',
+          due_date: '2014-06-15',
+          gross_total: '1500.0',
+          total_discount: '0.0',
+          total_vat: '270.0',
+          created_at: '2014-05-15 00:00:00 UTC',
+          item_type: 'invoice',
+          remaining: '0.0',
+          total_paid: '1770.0',
+          invoice_series: 'A',
+          invoice_id: 1,
+          printed_at: nil,
+          archived: false,
+          billing_address: 'Guzel Mahalle Istanbul',
+          billing_phone: '123 123 4567',
+          billing_fax: nil,
+          tax_office: '12345678901',
+          tax_number: 'Beşiktaş',
+          shipment_date: nil,
+          net_total: '1770.0',
+          payment_status: 'paid',
+          days_overdue: 0,
+          days_outstanding: 0,
+          category: {
+            id: 2,
+            name: 'Aylık',
+            bg_color: '5cbc68',
+            text_color: 'f3f2f2'
+          },
+          contact: {
+            id: 1,
+            name: 'ABC LTD. STI.',
+            tax_number: '1234567890',
+            tax_office: 'Beyoglu',
+            balance: '0.0',
+            estimate_balance: '0.0',
+            address: {
+              id: 575,
+              address: 'Guzel Mahalle Istanbul',
+              phone: '123 123 4567',
+              fax: nil
+            }
+          },
+          details: [
+            {
+              id: 1,
+              detail_no: 1,
+              quantity: '1.0',
+              unit_price: '1500.0',
+              discount: '0.0',
+              vat_rate: '18.0',
+              discount_type: 'amount',
+              discount_rate: nil,
+              product: {
+                id: 10,
+                name: 'Aylık Bakım',
+                vat_rate: '18.0',
+                currency: 'TRL',
+                list_price: '1500.0'
+              }
+            }
+          ]
         }
-      }
-    ]
-  }
-}.to_json, headers: {})
+      }.to_json, headers: {})
   end
 end
