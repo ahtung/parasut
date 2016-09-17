@@ -6,11 +6,7 @@ module Parasut
     include_root_in_json true
     parse_root_in_json true
 
-    def e_document_status
-      self.class.get_raw("sales_invoices/#{id}/e_document_status") do |parsed_data, response|
-        parsed_data[:data]
-      end
-    end
+    has_one :e_document_status
 
     def e_document_type
       self.class.get_raw("sales_invoices/#{id}/e_document_type") do |parsed_data, response|
