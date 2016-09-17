@@ -171,6 +171,51 @@ RSpec.configure do |config|
       }
       .to_json, headers: {})
 
+    # GET /contacts/1/outstanding_payments
+    stub_request(:get, 'https://api.parasut.com/v1/sales_invoices/1/outstanding_payments')
+      .to_return(status: 200, body: {
+        items: [
+          {
+            id: 1003,
+            date: '2014-06-25',
+            amount: '224.8',
+            notes: 'Is bitimi',
+            flow: 'in',
+            paid_on: nil,
+            payable_type: 'SalesInvoice',
+            payable_id: 502
+          }
+        ],
+        meta: {
+          item_count: 1,
+          page_count: 1,
+          per_page: 25
+        }
+      }.to_json, headers: {})
+
+    # GET /contacts/1/past_transactions
+    stub_request(:get, 'https://api.parasut.com/v1/sales_invoices/1/past_transactions')
+      .to_return(status: 200, body: {
+        items: [
+          {
+            account_id: nil,
+            account_name: nil,
+            amount: "200.0",
+            date: "2014-05-19",
+            debit_credit: nil,
+            description: 'On odeme',
+            issue_date: nil,
+            id: 2003,
+            item_id: 502,
+            transaction_type: 'collection'
+          }
+        ],
+        meta: {
+          item_count: 1,
+          page_count: 1,
+          per_page: 25
+        }
+      }.to_json, headers: {})
     # GET /contacts/1
     stub_request(:get, 'https://api.parasut.com/v1/contacts/1')
       .to_return(status: 200, body: {
