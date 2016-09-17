@@ -7,8 +7,9 @@ module Her
       end
 
       def refresh_token
-        resp = RestClient.post("#{token_url}?#{URI.encode_www_form(refresh_token_params)}", {})
-        JSON.parse(resp)
+        uri = URI("#{token_url}?#{URI.encode_www_form(refresh_token_params)}")
+        res = Net::HTTP.post_form(uri, {})
+        JSON.parse(res.body)
       end
 
       def refresh_token_params
@@ -36,8 +37,9 @@ module Her
       end
 
       def password
-        resp = RestClient.post("#{token_url}?#{URI.encode_www_form(password_params)}", {})
-        JSON.parse(resp)
+        uri = URI("#{token_url}?#{URI.encode_www_form(password_params)}")
+        res = Net::HTTP.post_form(uri, {})
+        JSON.parse(res.body)
       end
 
       def call(env)
