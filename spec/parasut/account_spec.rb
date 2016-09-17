@@ -7,7 +7,7 @@ RSpec.describe Parasut::Account do
     let(:account) { described_class.find(1) }
 
     it 'transactions' do
-      expect(account.transactions).to be_instance_of(Parasut::Transaction)
+      expect(account.transactions.first).to be_instance_of(Parasut::Transaction)
     end
   end
 end
