@@ -71,6 +71,7 @@ Her::API.setup url: "https://api.parasut.com/v1/#{ENV['PARSUT_COMPANY_ID']}" do 
   config.use Faraday::Request::UrlEncoded
   config.use Her::Middleware::OAuthProviderHeader
   config.use Faraday::Adapter::NetHttp
+  config.use Faraday::Response::Logger, ActiveSupport::Logger.new(STDOUT)
 end
 
 require_relative 'parasut/version'
