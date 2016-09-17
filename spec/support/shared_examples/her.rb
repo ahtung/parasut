@@ -19,6 +19,13 @@ RSpec.shared_examples 'her model' do
         expect(described_class.find(1)).to be_instance_of(described_class)
       end
     end
+
+    describe 'total_pages' do
+      xit 'returns 1' do
+        collection = described_class.all
+        expect(collection.total_count).to eq(1)
+      end
+    end
   end
 
   # Instance methods
