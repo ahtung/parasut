@@ -1,7 +1,7 @@
-# lib/parasut/e_document_status.rb
+# lib/parasut/document_status.rb
 module Parasut
   # Contact
-  class EDocumentStatus
+  class DocumentStatus
     include Her::Model
   end
 end

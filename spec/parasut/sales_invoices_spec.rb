@@ -7,7 +7,7 @@ RSpec.describe Parasut::SalesInvoice do
     let(:sales_invoice) { described_class.find(1) }
 
     it 'e_document_status' do
-      expect(sales_invoice.e_document_status).to be_instance_of(Parasut::EDocumentStatus)
+      expect(sales_invoice.e_document_status).to be_instance_of(Parasut::DocumentStatus)
     end
 
     it 'e_document_type' do
