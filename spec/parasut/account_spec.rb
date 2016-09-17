@@ -6,12 +6,8 @@ RSpec.describe Parasut::Account do
   describe '#' do
     let(:account) { described_class.find(1) }
 
-    it 'e_document_status' do
+    it 'transactions' do
       expect(account.transactions).to be_instance_of(Parasut::Transaction)
-    end
-
-    it 'e_document_type' do
-      expect(sales_invoice.e_document_type).to eq('e_invoice')
     end
   end
 end
