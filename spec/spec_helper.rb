@@ -536,7 +536,7 @@ RSpec.configure do |config|
         pdf: nil
       }.to_json, headers: {})
 
-    # GET /sales_invoices/1/e_document_status
+    # GET /sales_invoices/1/e_document_type
     stub_request(:get, 'https://api.parasut.com/v1/sales_invoices/1/e_document_type')
       .to_return(status: 200, body: {
         e_document_type: 'e_invoice'

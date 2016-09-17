@@ -3,5 +3,6 @@ module Parasut
   # Contact
   class DocumentStatus
     include Her::Model
+    belongs_to :sales_invoice
   end
 end
