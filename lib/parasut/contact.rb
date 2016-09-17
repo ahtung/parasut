@@ -6,11 +6,8 @@ module Parasut
     include_root_in_json true
     parse_root_in_json true
 
-    def outstanding_payments
-      self.class.get_raw("sales_invoices/1#{id}/outstanding_payments") do |parsed_data, response|
-        parsed_data[:data]
-      end
-    end
+    # Relations
+    has_many :outstanding_payments, class_name: 'Payment'
 
     def past_transactions
       self.class.get_raw("sales_invoices/1#{id}/past_transactions") do |parsed_data, response|
