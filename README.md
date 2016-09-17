@@ -61,6 +61,9 @@ Afterwards you can call a model:
 
 - PARASUT_CLIENT_ID
 - PARASUT_CLIENT_SECRET
+- PARASUT_USERNAME
+- PARASUT_PASSWORD
+- PARSUT_COMPANY_ID
 
 ## Development
 
