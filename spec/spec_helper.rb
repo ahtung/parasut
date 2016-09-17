@@ -640,7 +640,7 @@ RSpec.configure do |config|
         }.to_json, headers: {})
 
       # DELETE /products/1
-      stub_request(:delete, 'https://api.parasut.com/v1/sales_invoices')
+      stub_request(:delete, 'https://api.parasut.com/v1/sales_invoices/1')
         .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
 
       # GET /sales_invoices
