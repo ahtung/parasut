@@ -3,10 +3,16 @@ require 'her/middleware/o_auth_provider_header'
 require 'her/middleware/parasut_parser'
 require 'json'
 require 'uri'
-require 'kaminari'
-require 'kaminari/models/array_extension'
+require 'kaminari/config'
+require 'kaminari/helpers/action_view_extension'
+require 'kaminari/helpers/paginator'
+require 'kaminari/models/page_scope_methods'
+require 'kaminari/models/configuration_methods'
+require 'kaminari/hooks'
 require 'rest_client'
 require 'pry'
+
+Kaminari::Hooks.init
 
 Her::API.setup url: "https://api.parasut.com/v1/#{ENV['PARSUT_COMPANY_ID']}" do |config|
   config.use Her::Middleware::ParasutParser
