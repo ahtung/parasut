@@ -1,14 +1,12 @@
 language: ruby
 rvm:
-  - '2.3.1'
+- 2.3.1
 deploy:
   provider: rubygems
   api_key:
-    secure: <%= ENV['RUBYGEMS_API_KEY'] %>
-  gemspec: parasut.gemspec
+    secure: xq0SBwSSygwJmRVGcLlQhBxM5M5XT3Au/pyb4/Hiq3mWuNAt+TbGX7Z8Bl+DSRr901nHbJ49RJIYoC6eUS6IJqCVVMPziQUPn/6S1M+JOS8OwuQVSSTHotgMNbkVZbx6yC0G5CV3AxRVQDbVDQie7xOaKV95J/D5XjPzVy/wvNBT6mYgnWCMmMn9tPfUBlZtzQZtLHpLiIaoUweBr0IupfyamgWAGICZBWeAUNCtEImvu35kCs7J66fTiftd9ayG9CbQ2jKqYReh5P7+Hfz19mIjeed2Tz0Y1PMqBJNwL8phOhepwvcrdP3uYqSsdxCuOx4mia9Sd1/rgrCaemsgNLYD65eW4uJo4Q1v0ArH2JJw2v9r3J5GNMp6QX7xDYzXuUtrtFW2AHDCzVn+LC/ZfUSRpP00iexMwncty8aXZjipJwKq1IvW8qnNbd+Lca8p8CaMOGN6LJD+V8QwwA2UrgI0k/rjAqsEZrIpJR907gMXrnfZEwG/PkBAPeiXy4dOAgzSaR26O7xoXFhwieXjGDyrKP2gZoKoPT73WA+I5I5ZEjseU1K4UmmOfF8Azp3FtQOExb5zyGtLHi05865P34/+3oOFoaW+AhLcFDg2PVXpc2LKQcaDkEOiLlh/F/zLkdHw03kZyp/J9E20Z/6geUAZ0cxnLzd0WKSMxzsgow0=
   gem: parasut
   on:
     repo: ahtung/parasut
-  skip_cleanup: true
 before_install:
-  - gem update bundler
+- gem update bundler
