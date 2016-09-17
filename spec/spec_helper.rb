@@ -254,6 +254,32 @@ RSpec.configure do |config|
         }
       }.to_json, headers: {})
 
+    # GET /contacts/1/past_transactions
+    stub_request(:get, 'https://api.parasut.com/v1/contacts/1/past_transactions')
+      .to_return(status: 200, body: {
+        items: [
+          {
+            account_id: nil,
+            account_name: nil,
+            amount: "200.0",
+            date: "2014-05-19",
+            debit_credit: nil,
+            description: 'On odeme',
+            issue_date: nil,
+            id: 2003,
+            item_id: 502,
+            transaction_type: 'collection'
+          }
+        ],
+        meta: {
+          item_count: 1,
+          page_count: 1,
+          per_page: 25
+        }
+      }.to_json, headers: {})
+
+
+
     # DELETE /contacts/1
     stub_request(:delete, 'https://api.parasut.com/v1/contacts/1')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
@@ -434,6 +460,32 @@ RSpec.configure do |config|
           }
         }
       }.to_json, headers: {})
+
+      # GET /accounts/1/transactions
+      stub_request(:get, 'https://api.parasut.com/v1/accounts/1/transactions')
+        .to_return(status: 200, body: {
+          transactions: {
+            items: [
+              {
+                account_id: nil,
+                account_name: nil,
+                amount: '200.0',
+                date: '2014-05-19',
+                debit_credit: nil,
+                description: 'Ön ödeme',
+                issue_date: nil,
+                id: 2003,
+                item_id: 502,
+                transaction_type: 'collection'
+              }
+            ],
+            meta: {
+              item_count: 1,
+              page_count: 1,
+              per_page: 25
+            }
+          }
+        }.to_json, headers: {})
 
     # GET /accounts
     stub_request(:get, 'https://api.parasut.com/v1/accounts')
