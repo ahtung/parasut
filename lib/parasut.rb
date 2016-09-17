@@ -58,8 +58,9 @@ end
 class ParasutParser < Her::Middleware::DefaultParseJSON
   def parse(body)
     json = parse_json(body)
+    data = json[:items].present? ? json[:items] : json
     {
-      data: json[:items] || {},
+      data: data || {},
       errors: json[:errors] || [],
       metadata: json[:meta] || {}
     }
@@ -80,6 +81,8 @@ require_relative 'parasut/product'
 require_relative 'parasut/contact'
 require_relative 'parasut/item_category'
 require_relative 'parasut/account'
+require_relative 'parasut/e_document_type'
+require_relative 'parasut/e_document_status'
 require_relative 'parasut/sales_invoice'
 
 # lib/parasut.rb
