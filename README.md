@@ -34,6 +34,8 @@ Or install it yourself as:
 
 Create an initializer for Parasut options.
 ```
+  require 'parasut'
+
   # config/initializers/parasut.rb
   Parasut.options do |option|
     option.client_id = 'client_id',
@@ -42,7 +44,7 @@ Create an initializer for Parasut options.
     option.password = 'password',
     option.company_id = 'company_id',
   end
-````
+```
 
 Afterwards you can call a model:
 
