@@ -1,7 +1,9 @@
 require 'webmock/rspec'
 require 'json'
+require 'simplecov'
 require 'coveralls'
-Coveralls.wear!
+SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([SimpleCov::Formatter::HTMLFormatter, Coveralls::SimpleCov::Formatter])
+SimpleCov.start
 require 'webmock/rspec'
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
@@ -85,7 +87,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # DELETE /products/1
-    stub_request(:delete, 'https://api.parasut.com/v1/products')
+    stub_request(:delete, 'https://api.parasut.com/v1/products/1')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
 
     # GET /products
@@ -173,6 +175,52 @@ RSpec.configure do |config|
       }
       .to_json, headers: {})
 
+    # GET /sales_invoices/1/outstanding_payments
+    stub_request(:get, 'https://api.parasut.com/v1/sales_invoices/1/outstanding_payments')
+      .to_return(status: 200, body: {
+        items: [
+          {
+            id: 1003,
+            date: '2014-06-25',
+            amount: '224.8',
+            notes: 'Is bitimi',
+            flow: 'in',
+            paid_on: nil,
+            payable_type: 'SalesInvoice',
+            payable_id: 502
+          }
+        ],
+        meta: {
+          item_count: 1,
+          page_count: 1,
+          per_page: 25
+        }
+      }.to_json, headers: {})
+
+    # GET /sales_invoices/1/past_transactions
+    stub_request(:get, 'https://api.parasut.com/v1/sales_invoices/1/past_transactions')
+      .to_return(status: 200, body: {
+        items: [
+          {
+            account_id: nil,
+            account_name: nil,
+            amount: '200.0',
+            date: '2014-05-19',
+            debit_credit: nil,
+            description: 'On odeme',
+            issue_date: nil,
+            id: 2003,
+            item_id: 502,
+            transaction_type: 'collection'
+          }
+        ],
+        meta: {
+          item_count: 1,
+          page_count: 1,
+          per_page: 25
+        }
+      }.to_json, headers: {})
+
     # GET /contacts/1
     stub_request(:get, 'https://api.parasut.com/v1/contacts/1')
       .to_return(status: 200, body: {
@@ -210,8 +258,54 @@ RSpec.configure do |config|
         }
       }.to_json, headers: {})
 
+    # GET /contacts/1/past_transactions
+    stub_request(:get, 'https://api.parasut.com/v1/contacts/1/past_transactions')
+      .to_return(status: 200, body: {
+        items: [
+          {
+            account_id: nil,
+            account_name: nil,
+            amount: "200.0",
+            date: "2014-05-19",
+            debit_credit: nil,
+            description: 'On odeme',
+            issue_date: nil,
+            id: 2003,
+            item_id: 502,
+            transaction_type: 'collection'
+          }
+        ],
+        meta: {
+          item_count: 1,
+          page_count: 1,
+          per_page: 25
+        }
+      }.to_json, headers: {})
+
+    # GET /contacts/1/outstanding_payments
+    stub_request(:get, 'https://api.parasut.com/v1/contacts/1/outstanding_payments')
+      .to_return(status: 200, body: {
+        items: [
+          {
+            id: 1003,
+            date: '2014-06-25',
+            amount: '224.8',
+            notes: 'Is bitimi',
+            flow: 'in',
+            paid_on: nil,
+            payable_type: 'SalesInvoice',
+            payable_id: 502
+          }
+        ],
+        meta: {
+          item_count: 1,
+          page_count: 1,
+          per_page: 25
+        }
+      }.to_json, headers: {})
+
     # DELETE /contacts/1
-    stub_request(:delete, 'https://api.parasut.com/v1/contacts')
+    stub_request(:delete, 'https://api.parasut.com/v1/contacts/1')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
 
     # GET /contacts
@@ -311,7 +405,7 @@ RSpec.configure do |config|
     stub_request(:get, 'https://api.parasut.com/v1/item_categories/1')
       .to_return(status: 200, body: {
         item_category: {
-          id: 3,
+          id: 1,
           category_type: 'Contact',
           name: 'Mimarlık şirketleri',
           bg_color: '5cbc68',
@@ -320,7 +414,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # DELETE /item_categories/1
-    stub_request(:delete, 'https://api.parasut.com/v1/item_categories')
+    stub_request(:delete, 'https://api.parasut.com/v1/item_categories/1')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
 
     # GET /item_categories
@@ -355,10 +449,10 @@ RSpec.configure do |config|
 
     # /accounts
     # GET /accounts/1
-    stub_request(:get, 'https://api.parasut.com/v1/accounts/1')
+    stub_request(:get, 'https://api.parasut.com/v1/accounts/1?transactions=false')
       .to_return(status: 200, body: {
         account: {
-          id: 2,
+          id: 1,
           name: 'TEB Ataşehir Vadesiz TL',
           account_type: 'bank',
           balance: '1000.00',
@@ -368,28 +462,50 @@ RSpec.configure do |config|
           iban: '12345678',
           archived: false
         },
-        transactions: {
-          items: [
-            {
-              account_id: nil,
-              account_name: nil,
-              amount: '200.0',
-              date: '2014-05-19',
-              debit_credit: nil,
-              description: 'Ön ödeme',
-              issue_date: nil,
-              id: 2003,
-              item_id: 502,
-              transaction_type: 'collection'
-            }
-          ],
-          meta: {
-            item_count: 1,
-            page_count: 1,
-            per_page: 25
-          }
-        }
+        transactions: nil
       }.to_json, headers: {})
+
+    # GET /accounts/1
+    stub_request(:get, 'https://api.parasut.com/v1/accounts/1')
+      .to_return(status: 200, body: {
+        account: {
+          id: 1,
+          name: 'TEB Ataşehir Vadesiz TL',
+          account_type: 'bank',
+          balance: '1000.00',
+          bank_name: 'TEB',
+          bank_branch: 'Ataşehir',
+          bank_account_no: '12345',
+          iban: '12345678',
+          archived: false
+        },
+      }.to_json, headers: {})
+
+      # GET /accounts/1/transactions
+      stub_request(:get, 'https://api.parasut.com/v1/accounts/1/transactions')
+        .to_return(status: 200, body: {
+          transactions: {
+            items: [
+              {
+                account_id: nil,
+                account_name: nil,
+                amount: '200.0',
+                date: '2014-05-19',
+                debit_credit: nil,
+                description: 'Ön ödeme',
+                issue_date: nil,
+                id: 2003,
+                item_id: 502,
+                transaction_type: 'collection'
+              }
+            ],
+            meta: {
+              item_count: 1,
+              page_count: 1,
+              per_page: 25
+            }
+          }
+        }.to_json, headers: {})
 
     # GET /accounts
     stub_request(:get, 'https://api.parasut.com/v1/accounts')
@@ -410,6 +526,22 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # /sales_invoices
+    # GET /sales_invoices/1/e_document_status
+    stub_request(:get, 'https://api.parasut.com/v1/sales_invoices/1/e_document_status')
+      .to_return(status: 200, body: {
+        sales_invoice_id: '1',
+        type: 'e_archive',
+        status: 'pending',
+        errors: nil,
+        pdf: nil
+      }.to_json, headers: {})
+
+    # GET /sales_invoices/1/e_document_type
+    stub_request(:get, 'https://api.parasut.com/v1/sales_invoices/1/e_document_type')
+      .to_return(status: 200, body: {
+        e_document_type: 'e_invoice'
+      }.to_json, headers: {})
+
     # PUT /sales_invoices/1
     stub_request(:put, 'https://api.parasut.com/v1/sales_invoices/1')
       .to_return(status: 200, body: {
@@ -581,7 +713,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # DELETE /products/1
-    stub_request(:delete, 'https://api.parasut.com/v1/sales_invoices')
+    stub_request(:delete, 'https://api.parasut.com/v1/sales_invoices/1')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
 
     # GET /sales_invoices
@@ -677,74 +809,73 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # POST /sales_invoices/1
-    stub_request(:post, 'https://api.parasut.com/v1/sales_invoices')
-      .to_return(status: 200, body: {
-        sales_invoice: {
+    stub_request(:post, 'https://api.parasut.com/v1/sales_invoices').to_return(status: 200, body: {
+      sales_invoice: {
+        id: 1,
+        description: 'Büyük müşteri Nisan 2014 hizmet',
+        issue_date: '2014-05-15',
+        due_date: '2014-06-15',
+        gross_total: '1500.0',
+        total_discount: '0.0',
+        total_vat: '270.0',
+        created_at: '2014-05-15 00:00:00 UTC',
+        item_type: 'invoice',
+        remaining: '0.0',
+        total_paid: '1770.0',
+        invoice_series: 'A',
+        invoice_id: 1,
+        printed_at: nil,
+        archived: false,
+        billing_address: 'Guzel Mahalle Istanbul',
+        billing_phone: '123 123 4567',
+        billing_fax: nil,
+        tax_office: '12345678901',
+        tax_number: 'Beşiktaş',
+        shipment_date: nil,
+        net_total: '1770.0',
+        payment_status: 'paid',
+        days_overdue: 0,
+        days_outstanding: 0,
+        category: {
+          id: 2,
+          name: 'Aylık',
+          bg_color: '5cbc68',
+          text_color: 'f3f2f2'
+        },
+        contact: {
           id: 1,
-          description: 'Büyük müşteri Nisan 2014 hizmet',
-          issue_date: '2014-05-15',
-          due_date: '2014-06-15',
-          gross_total: '1500.0',
-          total_discount: '0.0',
-          total_vat: '270.0',
-          created_at: '2014-05-15 00:00:00 UTC',
-          item_type: 'invoice',
-          remaining: '0.0',
-          total_paid: '1770.0',
-          invoice_series: 'A',
-          invoice_id: 1,
-          printed_at: nil,
-          archived: false,
-          billing_address: 'Guzel Mahalle Istanbul',
-          billing_phone: '123 123 4567',
-          billing_fax: nil,
-          tax_office: '12345678901',
-          tax_number: 'Beşiktaş',
-          shipment_date: nil,
-          net_total: '1770.0',
-          payment_status: 'paid',
-          days_overdue: 0,
-          days_outstanding: 0,
-          category: {
-            id: 2,
-            name: 'Aylık',
-            bg_color: '5cbc68',
-            text_color: 'f3f2f2'
-          },
-          contact: {
+          name: 'ABC LTD. STI.',
+          tax_number: '1234567890',
+          tax_office: 'Beyoglu',
+          balance: '0.0',
+          estimate_balance: '0.0',
+          address: {
+            id: 575,
+            address: 'Guzel Mahalle Istanbul',
+            phone: '123 123 4567',
+            fax: nil
+          }
+        },
+        details: [
+          {
             id: 1,
-            name: 'ABC LTD. STI.',
-            tax_number: '1234567890',
-            tax_office: 'Beyoglu',
-            balance: '0.0',
-            estimate_balance: '0.0',
-            address: {
-              id: 575,
-              address: 'Guzel Mahalle Istanbul',
-              phone: '123 123 4567',
-              fax: nil
-            }
-          },
-          details: [
-            {
-              id: 1,
-              detail_no: 1,
-              quantity: '1.0',
-              unit_price: '1500.0',
-              discount: '0.0',
+            detail_no: 1,
+            quantity: '1.0',
+            unit_price: '1500.0',
+            discount: '0.0',
+            vat_rate: '18.0',
+            discount_type: 'amount',
+            discount_rate: nil,
+            product: {
+              id: 10,
+              name: 'Aylık Bakım',
               vat_rate: '18.0',
-              discount_type: 'amount',
-              discount_rate: nil,
-              product: {
-                id: 10,
-                name: 'Aylık Bakım',
-                vat_rate: '18.0',
-                currency: 'TRL',
-                list_price: '1500.0'
-              }
+              currency: 'TRL',
+              list_price: '1500.0'
             }
-          ]
-        }
-      }.to_json, headers: {})
+          }
+        ]
+      }
+    }.to_json, headers: {})
   end
 end
