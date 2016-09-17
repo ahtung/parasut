@@ -9,6 +9,7 @@ You can sign up for an parasut account at https://www.parasut.com/
 
 - her
 - rest_client
+- kaminari
 
 ## Requirements
 

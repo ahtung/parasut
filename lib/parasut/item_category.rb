@@ -3,6 +3,7 @@ module Parasut
   # Contact
   class ItemCategory
     include Her::Model
+    extend Parasut::Paginated
     include_root_in_json true
   end
 end

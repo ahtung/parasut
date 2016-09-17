@@ -31,8 +31,9 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = '>= 2.0.0'
   spec.add_dependency 'oauth2'
-  spec.add_dependency 'rest_client'
+  spec.add_dependency 'rest-client'
   spec.add_dependency 'her'
+  spec.add_dependency 'kaminari'
   spec.add_development_dependency 'bundler', '~> 1.13.0'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
