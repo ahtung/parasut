@@ -8,11 +8,6 @@ module Parasut
 
     # Relations
     has_many :outstanding_payments, class_name: 'Payment'
-
-    def past_transactions
-      self.class.get_raw("sales_invoices/1#{id}/past_transactions") do |parsed_data, response|
-        parsed_data[:data]
-      end
-    end
+    has_many :past_transactions, class_name: 'Transaction'
   end
 end
