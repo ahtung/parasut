@@ -171,7 +171,7 @@ RSpec.configure do |config|
       }
       .to_json, headers: {})
 
-    # GET /contacts/1/outstanding_payments
+    # GET /sales_invoices/1/outstanding_payments
     stub_request(:get, 'https://api.parasut.com/v1/sales_invoices/1/outstanding_payments')
       .to_return(status: 200, body: {
         items: [
