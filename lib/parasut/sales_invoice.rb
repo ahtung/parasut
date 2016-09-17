@@ -7,7 +7,6 @@ module Parasut
     include_root_in_json true
     parse_root_in_json true
 
-    has_many :payments
     has_one :e_document_status, class_name: 'DocumentStatus'
 
     def e_document_type
