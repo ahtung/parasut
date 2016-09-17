@@ -354,7 +354,7 @@ RSpec.configure do |config|
     stub_request(:get, 'https://api.parasut.com/v1/item_categories/1')
       .to_return(status: 200, body: {
         item_category: {
-          id: 3,
+          id: 1,
           category_type: 'Contact',
           name: 'Mimarlık şirketleri',
           bg_color: '5cbc68',
