@@ -449,6 +449,23 @@ RSpec.configure do |config|
 
     # /accounts
     # GET /accounts/1
+    stub_request(:get, 'https://api.parasut.com/v1/accounts/1?transactions=false')
+      .to_return(status: 200, body: {
+        account: {
+          id: 1,
+          name: 'TEB Ataşehir Vadesiz TL',
+          account_type: 'bank',
+          balance: '1000.00',
+          bank_name: 'TEB',
+          bank_branch: 'Ataşehir',
+          bank_account_no: '12345',
+          iban: '12345678',
+          archived: false
+        },
+        transactions: nil
+      }.to_json, headers: {})
+
+    # GET /accounts/1
     stub_request(:get, 'https://api.parasut.com/v1/accounts/1')
       .to_return(status: 200, body: {
         account: {

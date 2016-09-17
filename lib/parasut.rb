@@ -58,7 +58,9 @@ end
 class ParasutParser < Her::Middleware::DefaultParseJSON
   def parse(body)
     json = parse_json(body)
-    data = json[:items].present? ? json[:items] : json
+    data = json
+    data = data[:transactions].present? ? data[:transactions] : data if data[:account].blank?
+    data = data[:items].present? ? data[:items] : data
     {
       data: data || {},
       errors: json[:errors] || [],
