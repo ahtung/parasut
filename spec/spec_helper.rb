@@ -8,6 +8,10 @@ Dir['./spec/support/**/*.rb'].sort.each { |f| require f }
 require 'parasut'
 
 RSpec.configure do |config|
+  config.filter_run focus: true
+  config.run_all_when_everything_filtered = true
+  config.order = 'random'
+
   config.before(:suite) do
     Parasut.options do |options|
       options.client_id = 'client_id'
