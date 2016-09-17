@@ -42,9 +42,18 @@ Create an initializer for Parasut options.
     option.password = 'password',
     option.company_id = 'company_id',
   end
-
 ````
-TODO: Write usage instructions here
+
+Afterwards you can call a model:
+
+    account = Parasut::Account.find(1)
+    puts account.inspect
+
+    contacts = Parasut::Contact.all
+    puts contacts.inspect
+
+    account.destroy
+
 
 ## ENVs
 
