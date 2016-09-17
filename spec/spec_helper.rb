@@ -193,7 +193,7 @@ RSpec.configure do |config|
         }
       }.to_json, headers: {})
 
-    # GET /contacts/1/past_transactions
+    # GET /sales_invoices/1/past_transactions
     stub_request(:get, 'https://api.parasut.com/v1/sales_invoices/1/past_transactions')
       .to_return(status: 200, body: {
         items: [
@@ -216,6 +216,7 @@ RSpec.configure do |config|
           per_page: 25
         }
       }.to_json, headers: {})
+
     # GET /contacts/1
     stub_request(:get, 'https://api.parasut.com/v1/contacts/1')
       .to_return(status: 200, body: {
