@@ -21,9 +21,9 @@ RSpec.shared_examples 'her model' do
     end
 
     describe 'total_pages' do
-      xit 'returns 1' do
+      it 'returns 1' do
         collection = described_class.all
-        expect(collection.total_count).to eq(1)
+        expect(collection.total_pages).to eq(1)
       end
     end
   end

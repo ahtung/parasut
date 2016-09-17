@@ -3,7 +3,7 @@ module Parasut
   # Contact
   class Contact
     include Her::Model
-    include Parasut::Paginated
+    extend Parasut::Paginated
     include_root_in_json true
   end
 end
