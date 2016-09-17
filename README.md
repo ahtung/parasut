@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/ahtung/parasut.svg?branch=master)](https://travis-ci.org/ahtung/parasut)
 [![Coverage Status](https://coveralls.io/repos/github/ahtung/parasut/badge.svg?branch=master)](https://coveralls.io/github/ahtung/parasut?branch=master)
+[![Gem Version](https://badge.fury.io/rb/parasut.svg)](https://badge.fury.io/rb/parasut)
 
 You can sign up for an parasut account at https://www.parasut.com/
 
