@@ -254,7 +254,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # DELETE /contacts/1
-    stub_request(:delete, 'https://api.parasut.com/v1/contacts')
+    stub_request(:delete, 'https://api.parasut.com/v1/contacts/1')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
 
     # GET /contacts
