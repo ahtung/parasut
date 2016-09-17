@@ -1,6 +1,6 @@
 require 'her'
-require 'her/middleware/o_auth_provider_header'
-require 'her/middleware/parasut_parser'
+require_relative 'her/middleware/o_auth_provider_header'
+require_relative 'her/middleware/parasut_parser'
 require 'json'
 require 'uri'
 require 'kaminari/config'
