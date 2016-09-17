@@ -9,7 +9,7 @@ deploy:
   gem: parasut
   on:
     tags: true
-    repo: ahtung/parasut_ruby
+    repo: ahtung/parasut
   skip_cleanup: true
 before_install:
   - gem update bundler
