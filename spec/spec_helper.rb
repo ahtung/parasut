@@ -83,7 +83,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # DELETE /products/1
-    stub_request(:delete, 'https://api.parasut.com/v1/products')
+    stub_request(:delete, 'https://api.parasut.com/v1/products/1')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
 
     # GET /products
@@ -363,7 +363,7 @@ RSpec.configure do |config|
       }.to_json, headers: {})
 
     # DELETE /item_categories/1
-    stub_request(:delete, 'https://api.parasut.com/v1/item_categories')
+    stub_request(:delete, 'https://api.parasut.com/v1/item_categories/1')
       .to_return(status: 200, body: { success: 'OK' }.to_json, headers: {})
 
     # GET /item_categories
