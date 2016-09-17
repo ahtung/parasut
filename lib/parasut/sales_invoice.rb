@@ -4,6 +4,7 @@ module Parasut
   class SalesInvoice
     include Her::Model
     include_root_in_json true
+    parse_root_in_json true
 
     def e_document_status
       self.class.get_raw("sales_invoices/1#{id}/e_document_status") do |parsed_data, response|
