@@ -8,7 +8,6 @@ You can sign up for an parasut account at https://www.parasut.com/
 ## Dependencies
 
 - her
-- rest_client
 - kaminari
 
 ## Requirements
