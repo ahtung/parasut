@@ -479,27 +479,6 @@ RSpec.configure do |config|
           iban: '12345678',
           archived: false
         },
-        transactions: {
-          items: [
-            {
-              account_id: nil,
-              account_name: nil,
-              amount: '200.0',
-              date: '2014-05-19',
-              debit_credit: nil,
-              description: 'Ön ödeme',
-              issue_date: nil,
-              id: 2003,
-              item_id: 502,
-              transaction_type: 'collection'
-            }
-          ],
-          meta: {
-            item_count: 1,
-            page_count: 1,
-            per_page: 25
-          }
-        }
       }.to_json, headers: {})
 
       # GET /accounts/1/transactions
