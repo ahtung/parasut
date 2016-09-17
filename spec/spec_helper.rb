@@ -402,7 +402,7 @@ RSpec.configure do |config|
     stub_request(:get, 'https://api.parasut.com/v1/accounts/1')
       .to_return(status: 200, body: {
         account: {
-          id: 2,
+          id: 1,
           name: 'TEB Ataşehir Vadesiz TL',
           account_type: 'bank',
           balance: '1000.00',
