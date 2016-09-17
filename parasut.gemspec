@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
 
   spec.summary               = %q{Parasut client.}
   spec.description           = %q{Parasut client.}
-  spec.homepage              = 'https://github.com/ahtung/parasut-ruby'
+  spec.homepage              = 'https://github.com/ahtung/parasut_ruby'
   spec.license               = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or

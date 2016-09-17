@@ -1,7 +1,7 @@
-# parasut-ruby
+# parasut
 
-[![Build Status](https://travis-ci.org/ahtung/parasut-ruby.svg?branch=master)](https://travis-ci.org/ahtung/parasut-ruby)
-[![Coverage Status](https://coveralls.io/repos/github/ahtung/parasut-ruby/badge.svg?branch=master)](https://coveralls.io/github/ahtung/parasut-ruby?branch=master)
+[![Build Status](https://travis-ci.org/ahtung/parasut_ruby.svg?branch=master)](https://travis-ci.org/ahtung/parasut_ruby)
+[![Coverage Status](https://coveralls.io/repos/github/ahtung/parasut_ruby/badge.svg?branch=master)](https://coveralls.io/github/ahtung/parasut_ruby?branch=master)
 
 You can sign up for an parasut account at https://www.parasut.com/
 
@@ -77,7 +77,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/ahtung/parasut-ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/ahtung/parasut_ruby. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
