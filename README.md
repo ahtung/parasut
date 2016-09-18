@@ -39,11 +39,11 @@ Create an initializer for Parasut options.
 
   # config/initializers/parasut.rb
   Parasut.options do |option|
-    option.client_id = 'client_id',
-    option.client_secret = 'client_secret',
-    option.username = 'username',
-    option.password = 'password',
-    option.company_id = 'company_id',
+    option.client_id = 'client_id'
+    option.client_secret = 'client_secret'
+    option.username = 'username'
+    option.password = 'password'
+    option.company_id = 'company_id'
   end
 ```
 
