@@ -1,3 +1,3 @@
 module Parasut
-  VERSION = '0.14.2'.freeze
+  VERSION = '0.14.4'.freeze
 end
